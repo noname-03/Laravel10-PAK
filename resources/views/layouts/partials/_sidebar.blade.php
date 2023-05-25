@@ -56,10 +56,17 @@
 
             {{-- Data --}}
             <li class="menu-title">Data</li>
+
             <li class="menu-item">
                 <a href="{{route('pangkat.index')}}" class="menu-link">
                     <span class="menu-icon"><i data-feather="check-circle"></i></span>
                     <span class="menu-text"> Pangkat </span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="{{route('jabatan.index')}}" class="menu-link">
+                    <span class="menu-icon"><i data-feather="check-circle"></i></span>
+                    <span class="menu-text"> Jabatan </span>
                 </a>
             </li>
 

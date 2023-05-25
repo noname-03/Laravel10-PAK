@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Pangkat')
+@section('title', 'Jabatan')
 @push('styles')
 <!-- third party css -->
 <link href="{{ asset('/') }}assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet"
@@ -23,10 +23,10 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                        <li class="breadcrumb-item active">Pangkat</li>
+                        <li class="breadcrumb-item active">Jabatan</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Data Pangkat</h4>
+                <h4 class="page-title">Data Jabatan</h4>
             </div>
         </div>
     </div>
@@ -36,9 +36,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title">Data Pangkat</h4>
+                    <h4 class="header-title">Data Jabatan</h4>
                     <p class="text-muted font-13 mb-2 mt-2">
-                        <a href="{{route('pangkat.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
+                        <a href="{{route('jabatan.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
                     </p>
 
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
@@ -50,15 +50,14 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($pangkat as $item)
+                            @foreach ($jabatan as $item)
                             <tr>
                                 <td>{{$item->title}}</td>
                                 <td>
-                                    <form action="{{ route('pangkat.destroy', $item->id) }}" method="POST">
+                                    <form action="{{ route('jabatan.destroy', $item->id) }}" method="POST">
                                         @method('DELETE') @csrf
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            </a>
-                                            <a href="{{ route('pangkat.edit', $item->id) }}"
+                                            <a href="{{ route('jabatan.edit', $item->id) }}"
                                                 class="btn btn-sm btn-outline-secondary">
                                                 Edit
                                             </a>

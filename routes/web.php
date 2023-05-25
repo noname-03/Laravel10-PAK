@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\PangkatController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('pangkat', PangkatController::class);
+Route::resource('jabatan', JabatanController::class);
