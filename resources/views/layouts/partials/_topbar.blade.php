@@ -6,14 +6,14 @@
             <div class="logo-box">
                 <!-- Brand Logo Light -->
                 <a href="index.html" class="logo-light">
-                    <img src="assets/images/logo-light.png" alt="logo" class="logo-lg">
-                    <img src="assets/images/logo-sm.png" alt="small logo" class="logo-sm">
+                    <img src="{{ asset('/') }}assets/images/logo-light.png" alt="logo" class="logo-lg">
+                    <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm">
                 </a>
 
                 <!-- Brand Logo Dark -->
                 <a href="index.html" class="logo-dark">
-                    <img src="assets/images/logo-dark.png" alt="dark logo" class="logo-lg">
-                    <img src="assets/images/logo-sm.png" alt="small logo" class="logo-sm">
+                    <img src="{{ asset('/') }}assets/images/logo-dark.png" alt="dark logo" class="logo-lg">
+                    <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm">
                 </a>
             </div>
 
@@ -110,8 +110,8 @@
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0">
                                         <div class="notify-icon">
-                                            <img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle"
-                                                alt="" />
+                                            <img src="{{ asset('/') }}assets/images/users/avatar-2.jpg"
+                                                class="img-fluid rounded-circle" alt="" />
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 text-truncate ms-2">
@@ -155,8 +155,8 @@
                                 <div class="d-flex align-items-center">
                                     <div class="flex-shrink-0">
                                         <div class="notify-icon">
-                                            <img src="assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle"
-                                                alt="" />
+                                            <img src="{{ asset('/') }}assets/images/users/avatar-4.jpg"
+                                                class="img-fluid rounded-circle" alt="" />
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 text-truncate ms-2">
@@ -193,7 +193,7 @@
             <li class="dropdown">
                 <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown"
                     href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
+                    <img src="{{ asset('/') }}assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
                     <span class="ms-1 d-none d-md-inline-block">
                         {{Auth::user()->name}} <i class="mdi mdi-chevron-down"></i>
                     </span>

@@ -4,14 +4,14 @@
     <div class="logo-box">
         <!-- Brand Logo Light -->
         <a href="index.html" class="logo-light">
-            <img src="assets/images/logo-light.png" alt="logo" class="logo-lg">
-            <img src="assets/images/logo-sm.png" alt="small logo" class="logo-sm">
+            <img src="{{ asset('/') }}assets/images/logo-light.png" alt="logo" class="logo-lg">
+            <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm">
         </a>
 
         <!-- Brand Logo Dark -->
         <a href="index.html" class="logo-dark">
-            <img src="assets/images/logo-dark.png" alt="dark logo" class="logo-lg">
-            <img src="assets/images/logo-sm.png" alt="small logo" class="logo-sm">
+            <img src="{{ asset('/') }}assets/images/logo-dark.png" alt="dark logo" class="logo-lg">
+            <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm">
         </a>
     </div>
 
@@ -50,6 +50,16 @@
                 <a href="#" class="menu-link">
                     <span class="menu-icon"><i data-feather="download"></i></span>
                     <span class="menu-text"> Unduh </span>
+                </a>
+            </li>
+
+
+            {{-- Data --}}
+            <li class="menu-title">Data</li>
+            <li class="menu-item">
+                <a href="{{route('pangkat.index')}}" class="menu-link">
+                    <span class="menu-icon"><i data-feather="check-circle"></i></span>
+                    <span class="menu-text"> Pangkat </span>
                 </a>
             </li>
 
