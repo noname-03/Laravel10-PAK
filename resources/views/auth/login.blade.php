@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Log In | Ubold - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title>PAK | Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -48,8 +48,8 @@
                                         </span>
                                     </a>
                                 </div>
-                                <p class="text-muted mb-4 mt-3">Enter your email address and password to access admin
-                                    panel.</p>
+                                <p class="text-muted mb-4 mt-3">Masukan alamat email dan password untuk akses panel
+                                    admin.</p>
                             </div>
 
                             <form action="{{route('login')}}" method="post">
@@ -71,43 +71,12 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="checkbox-signin" checked>
-                                        <label class="form-check-label" for="checkbox-signin">Remember me</label>
-                                    </div>
-                                </div>
-
                                 <div class="text-center d-grid">
                                     <button class="btn btn-primary" type="submit"> Log In </button>
                                 </div>
 
                             </form>
 
-                            <div class="text-center">
-                                <h5 class="mt-3 text-muted">Sign in with</h5>
-                                <ul class="social-list list-inline mt-3 mb-0">
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"
-                                            class="social-list-item border-primary text-primary"><i
-                                                class="mdi mdi-facebook"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"
-                                            class="social-list-item border-danger text-danger"><i
-                                                class="mdi mdi-google"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);" class="social-list-item border-info text-info"><i
-                                                class="mdi mdi-twitter"></i></a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="javascript: void(0);"
-                                            class="social-list-item border-secondary text-secondary"><i
-                                                class="mdi mdi-github"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
 
                         </div> <!-- end card-body -->
                     </div>
@@ -115,8 +84,7 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p> <a href="auth-recoverpw.html" class="text-white-50 ms-1">Forgot your password?</a></p>
-                            <p class="text-white-50">Don't have an account? <a href="auth-register.html"
+                            <p class="text-white-50">Don't have an account? <a href="{{route('register')}}"
                                     class="text-white ms-1"><b>Sign Up</b></a></p>
                         </div> <!-- end col -->
                     </div>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Register & Signup | Ubold - Responsive Bootstrap 5 Admin Dashboard</title>
+    <title>PAK | Register </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -49,14 +49,15 @@
                                         </span>
                                     </a>
                                 </div>
-                                <p class="text-muted mb-4 mt-3">Don't have an account? Create your account, it takes
-                                    less than a minute</p>
+                                <p class="text-muted mb-4 mt-3">Tidak punya akun? Silahkan untuk mengisi formulir
+                                    dibawah ini
+                                </p>
                             </div>
 
                             <form action="#">
 
                                 <div class="mb-3">
-                                    <label for="fullname" class="form-label">Full Name</label>
+                                    <label for="fullname" class="form-label">Nama Lengkap</label>
                                     <input class="form-control" type="text" id="fullname" placeholder="Enter your name"
                                         required>
                                 </div>
@@ -120,7 +121,7 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-white-50">Already have account? <a href="auth-login.html"
+                            <p class="text-white-50">Already have account? <a href="{{route('login')}}"
                                     class="text-white ms-1"><b>Sign In</b></a></p>
                         </div> <!-- end col -->
                     </div>

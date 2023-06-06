@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li class="menu-item">
-                <a href="#" class="menu-link">
+                <a href="{{route('pak.index')}}" class="menu-link">
                     <span class="menu-icon"><i data-feather="book"></i></span>
                     <span class="menu-text"> PAK </span>
                 </a>

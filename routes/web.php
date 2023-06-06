@@ -3,6 +3,7 @@
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\PangkatController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('pangkat', PangkatController::class);
 Route::resource('jabatan', JabatanController::class);
+Route::get('/pak', [Pakcontroller::class, 'index'])->name('pak.index');
