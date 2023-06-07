@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Perbarui Pangkat')
+@section('title', 'Perbarui Jabatan')
 @section('content')
 <!-- Start Content-->
 <div class="container-fluid">
@@ -11,10 +11,11 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                        <li class="breadcrumb-item active">Perbarui Pangkat</li>
+                        <li class="breadcrumb-item"><a href="{{route('jabatan.index')}}">Jabatan</a></li>
+                        <li class="breadcrumb-item active">Perbarui Jabatan</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Perbarui Data Pangkat</h4>
+                <h4 class="page-title">Perbarui Data Jabatan</h4>
             </div>
         </div>
     </div>
@@ -25,7 +26,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="header-title">Formulir Data Pangkat</h4>
+                    <h4 class="header-title">Formulir Data Jabatan</h4>
 
                     <form action="{{route('jabatan.update', $jabatan->id)}}" method="post">
                         @csrf @method('patch')

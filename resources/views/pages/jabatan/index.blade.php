@@ -44,14 +44,16 @@
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                         <thead>
                             <tr>
-                                <th style="width: 80%">Name</th>
-                                <th style="width: 20%">Action</th>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             @foreach ($jabatan as $item)
                             <tr>
+                                <td>{{$loop->iteration}}</td>
                                 <td>{{$item->title}}</td>
                                 <td>
                                     <form action="{{ route('jabatan.destroy', $item->id) }}" method="POST">

@@ -69,6 +69,12 @@
                     <span class="menu-text"> Jabatan </span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a href="{{route('unsur.index')}}" class="menu-link">
+                    <span class="menu-icon"><i data-feather="check-circle"></i></span>
+                    <span class="menu-text"> Unsur </span>
+                </a>
+            </li>
 
             {{-- Referensi --}}
             <li class="menu-title">Referensi</li>

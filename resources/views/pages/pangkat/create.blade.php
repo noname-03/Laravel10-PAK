@@ -11,6 +11,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('pangkat.index')}}">Pangkat</a></li>
                         <li class="breadcrumb-item active">Tambah Pangkat</li>
                     </ol>
                 </div>
@@ -41,7 +42,7 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                        <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button>
 
                     </form>
 
