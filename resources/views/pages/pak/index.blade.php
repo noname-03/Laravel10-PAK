@@ -38,8 +38,31 @@
                 <div class="card-body">
                     <h4 class="header-title">Data Dupak</h4>
                     <p class="text-muted font-13 mb-2 mt-2">
-                        <a href="{{route('pangkat.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
+                        {{-- <a href="{{route('pangkat.create')}}" class="btn btn-sm btn-success">Tambah Data</a> --}}
+                        <!-- Small modal -->
+                        <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
+                            data-bs-target="#bs-example-modal-sm">Buat DUPAK</button>
                     </p>
+                    <div class="modal fade" id="bs-example-modal-sm" tabindex="-1" role="dialog"
+                        aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="mySmallModalLabel">BUAT DUPAK</h4>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="d-flex justify-content-around">
+                                        <a href="{{route('pak.last.create')}}" class="btn btn-sm btn-success">Guru
+                                            Reguler</a>
+                                        <a href="{{route('pangkat.create')}}" class="btn btn-sm btn-success">Guru
+                                            Pemula</a>
+                                    </div>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
 
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                         <thead>

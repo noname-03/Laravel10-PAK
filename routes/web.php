@@ -24,8 +24,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('pangkat', PangkatController::class);
-Route::resource('jabatan', JabatanController::class);
-Route::get('/pak', [Pakcontroller::class, 'index'])->name('pak.index');
-Route::resource('unsur', UnsurController::class);
+Route::middleware(['auth'])->group(function () {
+    Route::resource('pangkat', PangkatController::class);
+    Route::resource('jabatan', JabatanController::class);
+    Route::get('/pak', [Pakcontroller::class, 'index'])->name('pak.index');
+    Route::get('/pak/last/create', [Pakcontroller::class, 'last'])->name('pak.last.create');
+    Route::resource('unsur', UnsurController::class);
+});
