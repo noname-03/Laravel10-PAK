@@ -56,18 +56,29 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">Email address</label>
-                                    <input class="form-control" type="email" id="emailaddress" required=""
-                                        placeholder="Enter your email" name="email">
+                                    <input class="form-control @error('email') is-invalid @enderror" type="email"
+                                        id="emailaddress" required placeholder="Enter your email" name="email">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
                                     <div class="input-group input-group-merge">
-                                        <input type="password" id="password" class="form-control"
+                                        <input type="password" id="password"
+                                            class="form-control @error('password') is-invalid @enderror"
                                             placeholder="Enter your password" name="password">
                                         <div class="input-group-text" data-password="false">
                                             <span class="password-eye"></span>
                                         </div>
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -84,8 +95,8 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-white-50">Don't have an account? <a href="{{route('register')}}"
-                                    class="text-white ms-1"><b>Sign Up</b></a></p>
+                            <p class="text-white-50">Belum mempunyai akun? <a href="{{route('register')}}"
+                                    class="text-white ms-1"><b>Registrasi</b></a></p>
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->
@@ -100,9 +111,7 @@
 
 
     <footer class="footer footer-alt">
-        2015 - <script>
-            document.write(new Date().getFullYear())
-        </script> &copy; UBold theme by <a href="" class="text-white-50">Coderthemes</a>
+        2023
     </footer>
 
     <!-- Authentication js -->
