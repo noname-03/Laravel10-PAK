@@ -5,17 +5,8 @@ use App\Http\Controllers\PangkatController;
 use App\Http\Controllers\UnsurController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PakController;
+use App\Http\Controllers\JenisGuruController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,4 +21,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pak', [Pakcontroller::class, 'index'])->name('pak.index');
     Route::get('/pak/last/create', [Pakcontroller::class, 'last'])->name('pak.last.create');
     Route::resource('unsur', UnsurController::class);
+    Route::resource('jenisGuru', JenisGuruController::class);
 });

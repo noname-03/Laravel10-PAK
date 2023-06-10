@@ -101,7 +101,8 @@
                                                 class="btn btn-sm btn-outline-info">
                                                 <i class="fe-info"></i>
                                             </a>
-                                            <button type="submit" onclick="return confirm('Are you sure?')"
+                                            <button type="submit"
+                                                onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"
                                                 class="btn btn-sm btn-outline-danger">
                                                 <i class="fe-trash"></i>
                                             </button>

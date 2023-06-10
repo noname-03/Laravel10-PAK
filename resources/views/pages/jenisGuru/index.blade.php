@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Unsur')
+@section('title', 'Jenis Guru')
 @push('styles')
 <!-- third party css -->
 <link href="{{ asset('/') }}assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet"
@@ -23,10 +23,10 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                        <li class="breadcrumb-item active">Unsur</li>
+                        <li class="breadcrumb-item active">Jenis Guru</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Data Unsur</h4>
+                <h4 class="page-title">Data Jenis Guru</h4>
             </div>
         </div>
     </div>
@@ -36,9 +36,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title">Data Unsur</h4>
+                    <h4 class="header-title">Data Jenis Guru</h4>
                     <p class="text-muted font-13 mb-2 mt-2">
-                        <a href="{{route('unsur.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
+                        <a href="{{route('jenisGuru.create')}}" class="btn btn-sm btn-success">Tambah Data</a>
                     </p>
 
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
@@ -46,23 +46,21 @@
                             <tr>
                                 <th>No</th>
                                 <th>Judul</th>
-                                <th>Nilai</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach ($unsur as $item)
+                            @foreach ($jenisGuru as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$item->title}}</td>
-                                <td>{{$item->nilai}}</td>
                                 <td>
-                                    <form action="{{ route('unsur.destroy', $item->id) }}" method="POST">
+                                    <form action="{{ route('jenisGuru.destroy', $item->id) }}" method="POST">
                                         @method('DELETE') @csrf
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             </a>
-                                            <a href="{{ route('unsur.edit', $item->id) }}"
+                                            <a href="{{ route('jenisGuru.edit', $item->id) }}"
                                                 class="btn btn-sm btn-outline-secondary">
                                                 Edit
                                             </a>

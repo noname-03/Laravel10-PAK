@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             PangkatTableSeeder::class,
             JabatanTableSeeder::class,
             UnsurSeeder::class,
+            JenisGuruSeeder::class,
         ]);
     }
 }

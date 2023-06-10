@@ -45,7 +45,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
+                                <th>Judul</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -64,7 +64,8 @@
                                                 class="btn btn-sm btn-outline-secondary">
                                                 Edit
                                             </a>
-                                            <button type="submit" onclick="return confirm('Are you sure?')"
+                                            <button type="submit"
+                                                onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"
                                                 class="btn btn-sm btn-outline-danger">
                                                 Delete
                                             </button>
