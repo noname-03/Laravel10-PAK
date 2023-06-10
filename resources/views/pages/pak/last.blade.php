@@ -375,7 +375,7 @@
                                 </tbody>
                             </table>
                         </div> <!-- end .table-responsive-->
-
+                        &nbsp;
                         <div class="table-responsive">
                             <table class="table table-bordered mb-0">
                                 <thead>
@@ -383,204 +383,76 @@
                                         <th colspan="5">PENETAPAN ANGKA KREDIT</th>
                                     </tr>
                                 </thead>
+                                <thead>
+                                    <tr>
+                                        <td colspan="4" style="width: 60%">Unsur / Sub Unsur</td>
+                                        <td style="width: 40%">Nilai</td>
+                                    </tr>
+                                </thead>
                                 <tbody>
-                                    <div>{{-- merge 4 column --}}
+                                    <div>{{-- merge 3 column --}}
                                         <tr>
-                                            <td colspan="4">Unsur / Sub Unsur</td>
-                                            <td>Nilai</td>
+                                            <th scope="row" rowspan="12" style="width: 1%">1</th>
+                                            <td colspan="3">Unsur Utama</td>
+                                            <td></td>
                                         </tr>
-                                        <div>{{-- merge 3 column --}}
+                                        <div>{{-- merge 2 column A --}}
                                             <tr>
-                                                <td rowspan="12" style="width: 1%">1</td>
-                                                <td colspan="3">Unsur Utama</td>
+                                                <td rowspan="3" style="width: 1%">A</td>
+                                                <td colspan="2">Pendidikan</td>
                                                 <td></td>
                                             </tr>
-                                            <div>{{-- merge 2 column A --}}
+                                            <div>{{-- non merge --}}
                                                 <tr>
-                                                    <td rowspan="3" style="width: 1%">A</td>
-                                                    <td colspan="2">Pendidikan</td>
-                                                    <td></td>
+                                                    <td style="width: 1%">1</td>
+                                                    <td>Pendidikan
+                                                        <p style="color: #c3c1c1">Nilai diambil dari pendidikan
+                                                            secara
+                                                            otomatis
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" id="name" name="name"
+                                                            class="form-control @error('name') is-invalid @enderror"
+                                                            placeholder="Nilai" required>
+                                                        @error('name')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+                                                    </td>
                                                 </tr>
-                                                <div>{{-- non merge --}}
-                                                    <tr>
-                                                        <td style="width: 1%">1</td>
-                                                        <td>Pendidikan
-                                                            <p style="color: #c3c1c1">Nilai diambil dari pendidikan
-                                                                secara
-                                                                otomatis
-                                                            </p>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" id="name" name="name"
-                                                                class="form-control @error('name') is-invalid @enderror"
-                                                                placeholder="Nilai" required>
-                                                            @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="width: 1%">2</td>
-                                                        <td>Pelatihan Prajabatan
-                                                            <p style="color: #c3c1c1">Penulisan koma menggunakan "."
-                                                                (titik)
-                                                            </p>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" id="name" name="name"
-                                                                class="form-control @error('name') is-invalid @enderror"
-                                                                placeholder="Nilai" required>
-                                                            @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
-                                                        </td>
-                                                    </tr>
-                                                </div>{{-- end non merge --}}
-                                            </div>{{-- end merge 2 column A --}}
-
-                                            <div>{{-- merge 2 column B --}}
                                                 <tr>
-                                                    <td rowspan="4" style="width: 1%">B</td>
-                                                    <td colspan="2">Pembelajaran / Bimbindan dan Tugas Tertentu</td>
-                                                    <td></td>
+                                                    <td style="width: 1%">2</td>
+                                                    <td>Pelatihan Prajabatan
+                                                        <p style="color: #c3c1c1">Penulisan koma menggunakan "."
+                                                            (titik)
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" id="name" name="name"
+                                                            class="form-control @error('name') is-invalid @enderror"
+                                                            placeholder="Nilai" required>
+                                                        @error('name')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+                                                    </td>
                                                 </tr>
-                                                <div>{{-- non merge --}}
-                                                    <tr>
-                                                        <td style="width: 1%">1</td>
-                                                        <td>Proses Pembelajaran
-                                                            <p style="color: #c3c1c1">Penulisan koma menggunakan "."
-                                                                (titik)
-                                                            </p>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" id="name" name="name"
-                                                                class="form-control @error('name') is-invalid @enderror"
-                                                                placeholder="Nilai" required>
-                                                            @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="width: 1%">2</td>
-                                                        <td>Proses Bimbingan
-                                                            <p style="color: #c3c1c1">Penulisan koma menggunakan "."
-                                                                (titik)
-                                                            </p>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" id="name" name="name"
-                                                                class="form-control @error('name') is-invalid @enderror"
-                                                                placeholder="Nilai" required>
-                                                            @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="width: 1%">3</td>
-                                                        <td>Tugas Lainnya
-                                                            <p style="color: #c3c1c1">Penulisan koma menggunakan "."
-                                                                (titik)
-                                                            </p>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" id="name" name="name"
-                                                                class="form-control @error('name') is-invalid @enderror"
-                                                                placeholder="Nilai" required>
-                                                            @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
-                                                        </td>
-                                                    </tr>
-                                                </div>{{-- end non merge --}}
-                                            </div>{{-- end merge 2 column B --}}
+                                            </div>{{-- end non merge --}}
+                                        </div>{{-- end merge 2 column A --}}
 
-                                            <div>{{-- merge 2 column C --}}
-                                                <tr>
-                                                    <td rowspan="4" style="width: 1%">C</td>
-                                                    <td colspan="2">Pengembangan Keprofesian Berkelanjutan</td>
-                                                    <td></td>
-                                                </tr>
-                                                <div>{{-- non merge --}}
-                                                    <tr>
-                                                        <td style="width: 1%">1</td>
-                                                        <td>Pengembangan Diri
-                                                            <p style="color: #c3c1c1">Penulisan koma menggunakan "."
-                                                                (titik)
-                                                            </p>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" id="name" name="name"
-                                                                class="form-control @error('name') is-invalid @enderror"
-                                                                placeholder="Nilai" required>
-                                                            @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="width: 1%">2</td>
-                                                        <td>Publikasi Ilmiah
-                                                            <p style="color: #c3c1c1">Penulisan koma menggunakan "."
-                                                                (titik)
-                                                            </p>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" id="name" name="name"
-                                                                class="form-control @error('name') is-invalid @enderror"
-                                                                placeholder="Nilai" required>
-                                                            @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="width: 1%">3</td>
-                                                        <td>Karya Inofatif
-                                                            <p style="color: #c3c1c1">Penulisan koma menggunakan "."
-                                                                (titik)
-                                                            </p>
-                                                        </td>
-                                                        <td>
-                                                            <input type="number" id="name" name="name"
-                                                                class="form-control @error('name') is-invalid @enderror"
-                                                                placeholder="Nilai" required>
-                                                            @error('name')
-                                                            <div class="invalid-feedback">
-                                                                {{$message}}
-                                                            </div>
-                                                            @enderror
-                                                        </td>
-                                                    </tr>
-                                                </div>{{-- end non merge --}}
-                                            </div>{{-- end merge 2 column C --}}
-                                        </div>{{-- end merge 3 column --}}
-
-                                        <div>{{-- merge 3 column --}}
+                                        <div>{{-- merge 2 column B --}}
                                             <tr>
-                                                <td rowspan="12" style="width: 1%">2</td>
-                                                <td colspan="3">Unsur Penunjang</td>
+                                                <td rowspan="4" style="width: 1%">B</td>
+                                                <td colspan="2">Pembelajaran / Bimbindan dan Tugas Tertentu</td>
                                                 <td></td>
                                             </tr>
-                                            <div>{{-- merge 2 column A --}}
+                                            <div>{{-- non merge --}}
                                                 <tr>
-                                                    <td style="width: 1%">A</td>
-                                                    <td colspan="2">Ijazah Tidak Sesuai
+                                                    <td style="width: 1%">1</td>
+                                                    <td>Proses Pembelajaran
                                                         <p style="color: #c3c1c1">Penulisan koma menggunakan "."
                                                             (titik)
                                                         </p>
@@ -596,11 +468,9 @@
                                                         @enderror
                                                     </td>
                                                 </tr>
-                                            </div>{{-- end merge 2 column A --}}
-                                            <div>{{-- merge 2 column B --}}
                                                 <tr>
-                                                    <td style="width: 1%">B</td>
-                                                    <td colspan="2">Pendukung Tugas Guru
+                                                    <td style="width: 1%">2</td>
+                                                    <td>Proses Bimbingan
                                                         <p style="color: #c3c1c1">Penulisan koma menggunakan "."
                                                             (titik)
                                                         </p>
@@ -616,11 +486,9 @@
                                                         @enderror
                                                     </td>
                                                 </tr>
-                                            </div>{{-- end merge 2 column B --}}
-                                            <div>{{-- merge 2 column C --}}
                                                 <tr>
-                                                    <td style="width: 1%">C</td>
-                                                    <td colspan="2">Memperoleh Penghargaan
+                                                    <td style="width: 1%">3</td>
+                                                    <td>Tugas Lainnya
                                                         <p style="color: #c3c1c1">Penulisan koma menggunakan "."
                                                             (titik)
                                                         </p>
@@ -636,10 +504,22 @@
                                                         @enderror
                                                     </td>
                                                 </tr>
-                                            </div>{{-- end merge 2 column C --}}
-                                            <div>{{-- merge 2 with 3 column column jumlah --}}
+                                            </div>{{-- end non merge --}}
+                                        </div>{{-- end merge 2 column B --}}
+
+                                        <div>{{-- merge 2 column C --}}
+                                            <tr>
+                                                <td rowspan="4" style="width: 1%">C</td>
+                                                <td colspan="2">Pengembangan Keprofesian Berkelanjutan</td>
+                                                <td></td>
+                                            </tr>
+                                            <div>{{-- non merge --}}
                                                 <tr>
-                                                    <td colspan="3">Jumlah Unsur Penunjang
+                                                    <td style="width: 1%">1</td>
+                                                    <td>Pengembangan Diri
+                                                        <p style="color: #c3c1c1">Penulisan koma menggunakan "."
+                                                            (titik)
+                                                        </p>
                                                     </td>
                                                     <td>
                                                         <input type="number" id="name" name="name"
@@ -652,9 +532,129 @@
                                                         @enderror
                                                     </td>
                                                 </tr>
-                                            </div>{{-- end merge 2 with 3 column column jumlah --}}
-                                        </div>{{-- end merge 3 column --}}
-                                    </div>{{-- end merge 4 cloumn --}}
+                                                <tr>
+                                                    <td style="width: 1%">2</td>
+                                                    <td>Publikasi Ilmiah
+                                                        <p style="color: #c3c1c1">Penulisan koma menggunakan "."
+                                                            (titik)
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" id="name" name="name"
+                                                            class="form-control @error('name') is-invalid @enderror"
+                                                            placeholder="Nilai" required>
+                                                        @error('name')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 1%">3</td>
+                                                    <td>Karya Inofatif
+                                                        <p style="color: #c3c1c1">Penulisan koma menggunakan "."
+                                                            (titik)
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <input type="number" id="name" name="name"
+                                                            class="form-control @error('name') is-invalid @enderror"
+                                                            placeholder="Nilai" required>
+                                                        @error('name')
+                                                        <div class="invalid-feedback">
+                                                            {{$message}}
+                                                        </div>
+                                                        @enderror
+                                                    </td>
+                                                </tr>
+                                            </div>{{-- end non merge --}}
+                                        </div>{{-- end merge 2 column C --}}
+                                    </div>{{-- end merge 3 column --}}
+
+                                    <div>{{-- merge 3 column --}}
+                                        <tr>
+                                            <th scope="row" rowspan="5" style="width: 1%">2</th>
+                                            <td colspan="3">Unsur Penunjang</td>
+                                            <td></td>
+                                        </tr>
+                                        <div>{{-- merge 2 column A --}}
+                                            <tr>
+                                                <td style="width: 1%">A</td>
+                                                <td colspan="2">Ijazah Tidak Sesuai
+                                                    <p style="color: #c3c1c1">Penulisan koma menggunakan "."
+                                                        (titik)
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <input type="number" id="name" name="name"
+                                                        class="form-control @error('name') is-invalid @enderror"
+                                                        placeholder="Nilai" required>
+                                                    @error('name')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
+                                                    </div>
+                                                    @enderror
+                                                </td>
+                                            </tr>
+                                        </div>{{-- end merge 2 column A --}}
+                                        <div>{{-- merge 2 column B --}}
+                                            <tr>
+                                                <td style="width: 1%">B</td>
+                                                <td colspan="2">Pendukung Tugas Guru
+                                                    <p style="color: #c3c1c1">Penulisan koma menggunakan "."
+                                                        (titik)
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <input type="number" id="name" name="name"
+                                                        class="form-control @error('name') is-invalid @enderror"
+                                                        placeholder="Nilai" required>
+                                                    @error('name')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
+                                                    </div>
+                                                    @enderror
+                                                </td>
+                                            </tr>
+                                        </div>{{-- end merge 2 column B --}}
+                                        <div>{{-- merge 2 column C --}}
+                                            <tr>
+                                                <td style="width: 1%">C</td>
+                                                <td colspan="2">Memperoleh Penghargaan
+                                                    <p style="color: #c3c1c1">Penulisan koma menggunakan "."
+                                                        (titik)
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <input type="number" id="name" name="name"
+                                                        class="form-control @error('name') is-invalid @enderror"
+                                                        placeholder="Nilai" required>
+                                                    @error('name')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
+                                                    </div>
+                                                    @enderror
+                                                </td>
+                                            </tr>
+                                        </div>{{-- end merge 2 column C --}}
+                                        <div>{{-- merge 2 with 3 column column jumlah --}}
+                                            <tr>
+                                                <td colspan="3">Jumlah Unsur Penunjang
+                                                </td>
+                                                <td>
+                                                    <input type="number" id="name" name="name"
+                                                        class="form-control @error('name') is-invalid @enderror"
+                                                        placeholder="Nilai" required>
+                                                    @error('name')
+                                                    <div class="invalid-feedback">
+                                                        {{$message}}
+                                                    </div>
+                                                    @enderror
+                                                </td>
+                                            </tr>
+                                        </div>{{-- end merge 2 with 3 column column jumlah --}}
+                                    </div>{{-- end merge 3 column --}}
                                 </tbody>
                             </table>
                         </div> <!-- end .table-responsive-->
