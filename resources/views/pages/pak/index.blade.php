@@ -56,7 +56,7 @@
                                     <div class="d-flex justify-content-around">
                                         <a href="{{route('pak.last.create')}}" class="btn btn-sm btn-success">Guru
                                             Reguler</a>
-                                        <a href="{{route('pangkat.create')}}" class="btn btn-sm btn-success">Guru
+                                        <a href="{{route('pak.create')}}" class="btn btn-sm btn-success">Guru
                                             Pemula</a>
                                     </div>
                                 </div>

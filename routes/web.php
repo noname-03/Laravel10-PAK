@@ -19,6 +19,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('pangkat', PangkatController::class);
     Route::resource('jabatan', JabatanController::class);
     Route::get('/pak', [Pakcontroller::class, 'index'])->name('pak.index');
+    Route::get('/pak/create', [Pakcontroller::class, 'create'])->name('pak.create');
     Route::get('/pak/last/create', [Pakcontroller::class, 'last'])->name('pak.last.create');
     Route::resource('unsur', UnsurController::class);
     Route::resource('jenisGuru', JenisGuruController::class);
