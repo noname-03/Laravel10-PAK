@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Tendik::class, 'nip', 'nip');
     }
+
+    public function pak()
+    {
+        return $this->belongsTo(Pak::class);
+    }
 }

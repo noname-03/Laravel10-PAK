@@ -21,6 +21,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pak', [Pakcontroller::class, 'index'])->name('pak.index');
     Route::get('/pak/create', [Pakcontroller::class, 'create'])->name('pak.create');
     Route::get('/pak/last/create', [Pakcontroller::class, 'last'])->name('pak.last.create');
+    Route::post('/pak/last/', [Pakcontroller::class, 'lastStore'])->name('pak.last.store');
     Route::resource('unsur', UnsurController::class);
     Route::resource('jenisGuru', JenisGuruController::class);
 });

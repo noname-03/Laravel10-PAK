@@ -20,9 +20,16 @@ class Tendik extends Model
         'jenis_kelamin',
         'tugas_kota',
         'tugas_sekolah',
+        'tugas_mengajar',
         'masa_tahun',
         'masa_bulan',
         'pendidikan_linear',
+        'pangkat_tanggal',
+        'pendidikan_strata',
+        'pendidikan_jurusan',
+        'lahir_tempat',
+        'lahir_tanggal',
+        'jabatan_tanggal',
     ];
 
     public function user()

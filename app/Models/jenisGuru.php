@@ -11,4 +11,9 @@ class jenisGuru extends Model
 
     protected $table = 'jenis_guru';
     protected $fillable = ['title'];
+
+    public function pak()
+    {
+        return $this->hasMany(Pak::class);
+    }
 }

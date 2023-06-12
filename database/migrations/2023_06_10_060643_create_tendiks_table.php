@@ -20,9 +20,16 @@ return new class extends Migration {
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->string('tugas_kota');
             $table->string('tugas_sekolah');
+            $table->string('tugas_mengajar');
             $table->year('masa_tahun');
             $table->integer('masa_bulan');
+            $table->date('pangkat_tanggal');
             $table->boolean('pendidikan_linear');
+            $table->string('pendidikan_strata');
+            $table->string('pendidikan_jurusan');
+            $table->string('lahir_tempat');
+            $table->date('lahir_tanggal');
+            $table->date('jabatan_tanggal');
             $table->timestamps();
         });
     }
