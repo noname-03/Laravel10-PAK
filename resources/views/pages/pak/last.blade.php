@@ -440,16 +440,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($unsur as $key =>$item)
                                     <div>{{-- merge 3 column --}}
                                         <tr>
-                                            <th scope="row" rowspan="12" style="width: 1%">1</th>
-                                            <td colspan="3">Unsur Utama</td>
+                                            <th scope="row" rowspan="{{$item->count+1}}" style="width: 1%">
+                                                {{$loop->iteration}}</th>
+                                            <td colspan="3">{{$item->title}} </td>
                                             <td></td>
                                         </tr>
-                                        @foreach ($unsur as $item)
+                                        @foreach ($item->children as $item)
                                         <div>{{-- merge 2 column A --}}
                                             <tr>
-                                                <td rowspan="{{$item->children->count() +1}}" style="width: 1%">{{
+                                                <td rowspan="{{$item->count+1}}" style="width: 1%">{{
                                                     chr(64+
                                                     $loop->iteration) }}
                                                 </td>
@@ -461,13 +463,11 @@
                                                 <tr>
                                                     <td style="width: 1%">{{$loop->iteration}}</td>
                                                     <td>{{$name->title}}
-                                                        <p style="color: #c3c1c1">Nilai diambil dari pendidikan
-                                                            secara
-                                                            otomatis
+                                                        <p style="color: #c3c1c1">Penulisan koma menggunakan "." (titik)
                                                         </p>
                                                     </td>
                                                     <td>
-                                                        <input type="number" pattern="[0-9]+([,\.][0-9]+)?" id="name"
+                                                        <input type="number" step="any" id="name"
                                                             name="nilaiId[{{$name->id}}]"
                                                             class="form-control @error('name') is-invalid @enderror"
                                                             placeholder="Nilai" required>
@@ -483,7 +483,17 @@
                                         </div>{{-- end merge 2 column A --}}
                                         @endforeach
                                     </div>{{-- end merge 3 column --}}
-
+                                    @endforeach
+                                    <div>{{-- merge 3 column --}}
+                                        <tr>
+                                            <th scope="row" colspan="4" style="width: 1%">
+                                                Jumlah Unsur Utama & Penunjang </th>
+                                            {{-- <td colspan="4">Jumlah Unsur Utama & Penunjang</td> --}}
+                                            <td>
+                                                <p>Total: <span id="total">0</span></p>
+                                            </td>
+                                        </tr>
+                                    </div>{{-- end merge 3 column --}}
                                 </tbody>
                             </table>
                         </div> <!-- end .table-responsive-->
@@ -509,4 +519,28 @@
     $('.select2').select2();
 });
 </script>
+
+<!-- Tambahkan script ini di bagian bawah halaman HTML -->
+<script>
+    // Fungsi untuk menghitung total nilai
+    function calculateTotal() {
+        let total = 0;
+        const inputs = document.querySelectorAll('input[name^="nilaiId"]');
+
+        // Iterasi melalui setiap input nilai dan tambahkan ke total
+        inputs.forEach(input => {
+            const value = parseFloat(input.value);
+            if (!isNaN(value)) {
+                total += value;
+            }
+        });
+
+        // Tampilkan total pada elemen dengan id "total"
+        document.getElementById("total").textContent = total;
+    }
+
+    // Panggil fungsi calculateTotal saat nilai input berubah
+    document.addEventListener('input', calculateTotal);
+</script>
+
 @endpush

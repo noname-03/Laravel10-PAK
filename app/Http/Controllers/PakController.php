@@ -19,11 +19,89 @@ class PakController extends Controller
     {
         $count = Unsur::count();
         $jabatan = Jabatan::all();
-        $unsur = Unsur::where('parent_id', null)->with(str_repeat('children.', $count))->get();
+        // $unsur = Unsur::where('parent_id', null)->with(str_repeat('children.', $count))->get();
+        $unsur = Unsur::where('parent_id', null)->with('children.children')->get();
+        // dd(json($unsur));
+        // return response()->json($unsur);
+        //
+        $unsur->transform(function ($obj) {
+            $obj['count'] = $obj['children']->count();
+            foreach ($obj['children'] as $child) {
+                $child['count'] = $child['children']->count();
+                $obj['count'] += $child['count']; // Menambahkan count child ke count parent
+            }
+            return $obj;
+        });
+
+        // return $unsur;
+
+
+        // foreach ($unsur as $item) {
+        //     $a = $item->children->count();
+        //     // echo $item->title;
+        //     // echo "<br>";
+        //     // echo "a=" . $a;
+        //     echo "<br>";
+        //     foreach ($item->children as $item) {
+        //         $b = $item->children->count();
+        //         // echo $item->title;
+        //         // echo "<br>";
+        //         // echo "b=" . $b;
+        //         echo "<br>";
+        //         foreach ($item->children as $id => $name) {
+        //             $c = $name->children->count();
+        //             // echo $item->title;
+        //             // echo "<br>";
+        //             // echo "c=" . $c;
+        //             echo "<br>";
+        //             // echo "<br>";
+        //             # code...
+        //             $e = $a + $b + $c;
+        //             echo "e=" . $e;
+        //         }
+        //         // $e = $a + $b + $c;
+        //         // echo "e=" . $e;
+        //     }
+        //     // $e = $a + $b + $c;
+        //     // echo "e=" . $e;
+        // }
+        // dd($a + $b);
         $jenisGuru = jenisGuru::all();
         $pangkat = Pangkat::all();
         $tendik = Tendik::where('nip', Auth::user()->nip)->first();
         return view('pages.pak.last', compact('unsur', 'jabatan', 'jenisGuru', 'pangkat', 'tendik'));
+    }
+
+    function countChildren($data)
+    {
+        $count = 0;
+        foreach ($data as $item) {
+            if (isset($item['children'])) {
+                // Menambahkan jumlah child saat ini
+                $count += count($item['children']);
+                if (isset($item['children'])) {
+                    // Menghitung ulang jumlah child dari setiap child
+                    foreach ($item['children'] as $child) {
+                        $count += $this->countChildren($child);
+                    }
+                }
+            }
+        }
+
+        return $count;
+    }
+
+    function countData($data)
+    {
+        $count = 0;
+
+        // Iterasi setiap child
+        foreach ($data['children'] as $child) {
+            $count++; // Tambahkan 1 untuk setiap child
+            $count += countData($child); // Rekursi untuk child berikutnya
+        }
+
+        return $count;
     }
 
     public function lastStore(Request $request)
