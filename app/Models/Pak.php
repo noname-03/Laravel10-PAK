@@ -25,6 +25,7 @@ class Pak extends Model
         'pak_no',
         'pak_awal',
         'pak_akhir',
+        'pak_priode'
     ];
 
     public function user()

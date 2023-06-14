@@ -68,7 +68,7 @@
                         <thead>
                             <tr style="width: 100%">
                                 <th style="width: 2%">No</th>
-                                <th style="width: 3%">Tanggal</th>
+                                <th style="width: 3%">Tanggal Pengajuan</th>
                                 <th style="width: 2%">Priode</th>
                                 <th style="width: 5%">Usulan</th>
                                 <th style="width: 10%">Status</th>
@@ -115,14 +115,14 @@
                             <tr>
                                 <td style="text-align: center">{{$loop->iteration}}</td>
                                 <td style="text-align: center">{{$item->created_at}}</td>
-                                <td style="text-align: center">Pak Terakhir</td>
-                                <td style="text-align: center">III/a</td>
+                                <td style="text-align: center">{{$item->pak_priode}}</td>
+                                <td style="text-align: center">{{$tendik->pangkat->title}}</td>
                                 <td>
                                     <button class="btn btn-sm btn-outline-success"><i class="fe-check"></i>
                                         {{$item->status}}</button>
                                 </td>
-                                <td>SMAN 1 Cirebon</td>
-                                <td> Guru 1
+                                <td>{{$item->tugas_sekolah}}</td>
+                                <td> {{$tendik->nama}}
                                     <form action="{{ route('pangkat.destroy', '1') }}" method="POST">
                                         @method('DELETE') @csrf
                                         <div class="btn-group" role="group" aria-label="Basic example">

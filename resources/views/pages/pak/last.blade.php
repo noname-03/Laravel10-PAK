@@ -42,12 +42,23 @@
                         </p>
                         @csrf
                         <div class="row">
-                            <div class="col-md-12 mb-3">
+                            <div class="col-md-6 mb-3">
                                 <label for="pak_no" class="form-label">Pak Terakhir</label>
                                 <input type="text" id="pak_no" name="pak_no"
                                     class="form-control @error('pak_no') is-invalid @enderror"
                                     placeholder="Masukan Judul Unsur" required>
                                 @error('pak_no')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                            </div> <!-- end col -->
+                            <div class="col-md-6 mb-3">
+                                <label for="pak_priode" class="form-label">Tahun Priode</label>
+                                <input type="number" id="pak_priode" name="pak_priode"
+                                    class="form-control @error('pak_priode') is-invalid @enderror"
+                                    placeholder="Masukan Tahun Pak Priode" required>
+                                @error('pak_priode')
                                 <div class="invalid-feedback">
                                     {{$message}}
                                 </div>
@@ -149,16 +160,18 @@
                                             <div class="d-flex flex-row">
                                                 <div class="form-check">
                                                     <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                                        class="form-check-input" value="L" {{$tendik->jenis_kelamin ==
-                                                    'L' ? 'checked' : 'disabled' }}>
+                                                        class="form-check-input" value="L"
+                                                        checked={{$tendik->jenis_kelamin ==
+                                                    'L' ? 'checked' : '' }}>
                                                     <label class="form-check-label"
                                                         for="jenis_kelamin">Laki-Laki</label>
                                                 </div>
                                                 &nbsp;
                                                 <div class="form-check">
                                                     <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                                        class="form-check-input" value="P" {{$tendik->jenis_kelamin ==
-                                                    'P' ? 'checked' : 'disabled' }}>
+                                                        class="form-check-input" value="P"
+                                                        checked={{$tendik->jenis_kelamin ==
+                                                    'P' ? 'checked' : '' }}>
                                                     <label class="form-check-label"
                                                         for="jenis_kelamin">Perempuan</label>
                                                 </div>

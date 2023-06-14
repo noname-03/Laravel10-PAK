@@ -10,4 +10,9 @@ class Pangkat extends Model
     use HasFactory;
     protected $table = 'pangkat';
     protected $fillable = ['title'];
+
+    public function tendik()
+    {
+        return $this->hasMany(Tendik::class);
+    }
 }

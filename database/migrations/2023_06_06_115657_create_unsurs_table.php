@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->integer('parent_id')->nullable();
             $table->integer('nilai')->nullable();
-            $table->string('title');
+            $table->text('title');
             $table->year('year');
             $table->timestamps();
         });

@@ -211,7 +211,7 @@
                                 <div class="tab-pane" id="basictab{{$key+2}}">
                                     <div class="row">
                                         <div class="mb-3">
-                                            <label for="unsur_id" class="form-label">Provinsi</label>
+                                            <label for="unsur_id" class="form-label">Sub Unsur</label>
                                             <select name="unsur_id" id="unsur_id"
                                                 class="form-control  @error('unsur_id') is-invalid @enderror"
                                                 onchange="getCategories(this.value, {{$key+2}})">
@@ -227,7 +227,7 @@
                                             @enderror
                                         </div>
                                         <div class="mb-3">
-                                            <label for="category_id" class="form-label">Kota</label>
+                                            <label for="category_id" class="form-label">Kategori</label>
                                             <select name="category_id" id="category_id{{$key+2}}"
                                                 class="form-control @error('category_id') is-invalid @enderror">
                                                 <option value="">-</option>

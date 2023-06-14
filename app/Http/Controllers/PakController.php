@@ -30,26 +30,26 @@ class PakController extends Controller
     {
         $nilaiIdArray = $request->nilaiId;
 
-        $tendik = new Tendik;
-        $tendik->pangkat_id = $request->pangkat_id;
-        $tendik->jabatan_id = $request->jabatan_id;
-        $tendik->jenis_guru_id = $request->jenis_guru_id;
-        $tendik->nip = $request->nip;
-        $tendik->nama = $request->nama;
-        $tendik->jenis_kelamin = $request->jenis_kelamin;
-        $tendik->tugas_kota = $request->tugas_kota;
-        $tendik->tugas_sekolah = $request->tugas_sekolah;
-        $tendik->tugas_mengajar = $request->tugas_mengajar;
-        $tendik->masa_tahun = $request->masa_tahun;
-        $tendik->masa_bulan = $request->masa_bulan;
-        $tendik->pendidikan_linear = $request->pendidikan_linear;
-        $tendik->pangkat_tanggal = $request->pangkat_tanggal;
-        $tendik->pendidikan_strata = $request->pendidikan_strata;
-        $tendik->pendidikan_jurusan = $request->pendidikan_jurusan;
-        $tendik->lahir_tempat = $request->lahir_tempat;
-        $tendik->lahir_tanggal = $request->lahir_tanggal;
-        $tendik->jabatan_tanggal = $request->jabatan_tanggal;
-        $tendik->save();
+        // $tendik = new Tendik;
+        // $tendik->pangkat_id = $request->pangkat_id;
+        // $tendik->jabatan_id = $request->jabatan_id;
+        // $tendik->jenis_guru_id = $request->jenis_guru_id;
+        // $tendik->nip = $request->nip;
+        // $tendik->nama = $request->nama;
+        // $tendik->jenis_kelamin = $request->jenis_kelamin;
+        // $tendik->tugas_kota = $request->tugas_kota;
+        // $tendik->tugas_sekolah = $request->tugas_sekolah;
+        // $tendik->tugas_mengajar = $request->tugas_mengajar;
+        // $tendik->masa_tahun = $request->masa_tahun;
+        // $tendik->masa_bulan = $request->masa_bulan;
+        // $tendik->pendidikan_linear = $request->pendidikan_linear;
+        // $tendik->pangkat_tanggal = $request->pangkat_tanggal;
+        // $tendik->pendidikan_strata = $request->pendidikan_strata;
+        // $tendik->pendidikan_jurusan = $request->pendidikan_jurusan;
+        // $tendik->lahir_tempat = $request->lahir_tempat;
+        // $tendik->lahir_tanggal = $request->lahir_tanggal;
+        // $tendik->jabatan_tanggal = $request->jabatan_tanggal;
+        // $tendik->save();
 
         $pak = new Pak;
 
@@ -78,6 +78,7 @@ class PakController extends Controller
         $pak->pak_no = $request->pak_no;
         $pak->pak_awal = $request->pak_awal;
         $pak->pak_akhir = $request->pak_akhir;
+        $pak->pak_priode = $request->pak_priode;
         $pak->save();
 
         foreach ($nilaiIdArray as $key => $value) {
@@ -101,7 +102,8 @@ class PakController extends Controller
     public function index()
     {
         $pak = Pak::all();
-        return view('pages.pak.index', compact('pak'));
+        $tendik = Tendik::where('nip', Auth::user()->nip)->first();
+        return view('pages.pak.index', compact('pak', 'tendik'));
     }
 
     public function create()

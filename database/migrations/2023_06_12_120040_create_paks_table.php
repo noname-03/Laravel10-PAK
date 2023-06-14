@@ -25,6 +25,7 @@ return new class extends Migration {
             $table->string('pak_no')->nullable();
             $table->date('pak_awal')->nullable();
             $table->date('pak_akhir')->nullable();
+            $table->year('pak_priode');
             $table->timestamps();
         });
     }
