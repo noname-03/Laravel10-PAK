@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->foreignId('pangkat_id')->constrained('pangkat');
             $table->foreignId('jabatan_id')->constrained('jabatan');
             $table->foreignId('jenis_guru_id')->constrained('jenis_guru');
+            $table->foreignId('pendidikan_strata_id')->constrained('pendidikan_strata');
             $table->string('nip')->unique();
             $table->string('nama');
             $table->enum('jenis_kelamin', ['L', 'P']);
@@ -25,7 +26,6 @@ return new class extends Migration {
             $table->integer('masa_bulan');
             $table->date('pangkat_tanggal');
             $table->boolean('pendidikan_linear');
-            $table->string('pendidikan_strata');
             $table->string('pendidikan_jurusan');
             $table->string('lahir_tempat');
             $table->date('lahir_tanggal');

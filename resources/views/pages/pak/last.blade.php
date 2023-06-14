@@ -184,11 +184,11 @@
                                         <td>
                                             <div class="d-flex flex-row">
                                                 <select class="form-control select2" data-toggle="select2"
-                                                    data-width="100%" name="pendidikan_strata">
+                                                    data-width="100%" name="pendidikan_strata_id">
                                                     <option selected>-</option>
-                                                    <option value="diploma">Diploma</option>
-                                                    <option value="sarjana">Sarjana</option>
-                                                    <option value="magister">Magister</option>
+                                                    @foreach ($pendidikanStrata as $item)
+                                                    <option value="{{$item->id}}">{{$item->title}}</option>
+                                                    @endforeach
                                                 </select>
                                                 &nbsp;
                                                 <input type="text" id="pendidikan_jurusan" name="pendidikan_jurusan"

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Jabatan;
 use App\Models\jenisGuru;
 use App\Models\Pangkat;
+use App\Models\PendidikanStrata;
 use App\Models\Tendik;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class TendikController extends Controller
         $pangkat = Pangkat::all();
         $jabatan = Jabatan::all();
         $jenisGuru = jenisGuru::all();
-        return view('pages.tendik.create', compact('pangkat', 'jabatan', 'jenisGuru'));
+        $pendidikanStrata = PendidikanStrata::all();
+        return view('pages.tendik.create', compact('pangkat', 'jabatan', 'jenisGuru', 'pendidikanStrata'));
     }
 
     public function store(Request $request)
@@ -41,8 +43,8 @@ class TendikController extends Controller
         $jabatan = Jabatan::all();
         $jenisGuru = jenisGuru::all();
         $tendik = Tendik::findOrFail($id);
-        // dd($tendik->pendidikan_linear);
-        return view('pages.tendik.edit', compact('tendik', 'pangkat', 'jabatan', 'jenisGuru'));
+        $pendidikanStrata = PendidikanStrata::all();
+        return view('pages.tendik.edit', compact('tendik', 'pangkat', 'jabatan', 'jenisGuru', 'pendidikanStrata'));
     }
 
     public function update(Request $request, $id)

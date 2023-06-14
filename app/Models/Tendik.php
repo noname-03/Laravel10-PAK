@@ -15,6 +15,7 @@ class Tendik extends Model
         'pangkat_id',
         'jabatan_id',
         'jenis_guru_id',
+        'pendidikan_strata_id',
         'nip',
         'nama',
         'jenis_kelamin',
@@ -25,7 +26,6 @@ class Tendik extends Model
         'masa_bulan',
         'pendidikan_linear',
         'pangkat_tanggal',
-        'pendidikan_strata',
         'pendidikan_jurusan',
         'lahir_tempat',
         'lahir_tanggal',
@@ -48,5 +48,10 @@ class Tendik extends Model
     public function jenisGuru()
     {
         return $this->belongsTo(JenisGuru::class);
+    }
+
+    public function pendidikanStrata()
+    {
+        return $this->belongsTo(PendidikanStrata::class);
     }
 }

@@ -7,6 +7,7 @@ use App\Models\jenisGuru;
 use App\Models\Pak;
 use App\Models\PakUnsur;
 use App\Models\Pangkat;
+use App\Models\PendidikanStrata;
 use App\Models\Tendik;
 use App\Models\Unsur;
 use Illuminate\Http\Request;
@@ -32,7 +33,8 @@ class PakController extends Controller
         $jenisGuru = jenisGuru::all();
         $pangkat = Pangkat::all();
         $tendik = Tendik::where('nip', Auth::user()->nip)->first();
-        return view('pages.pak.last', compact('unsur', 'jabatan', 'jenisGuru', 'pangkat', 'tendik'));
+        $pendidikanStrata = PendidikanStrata::all();
+        return view('pages.pak.last', compact('unsur', 'jabatan', 'jenisGuru', 'pangkat', 'tendik', 'pendidikanStrata'));
     }
 
 

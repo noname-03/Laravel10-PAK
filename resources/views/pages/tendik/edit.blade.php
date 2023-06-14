@@ -214,16 +214,16 @@
                             </div> <!-- end col -->
 
                             <div class="col-md-6 mb-3">
-                                <label for="pendidikan_strata" class="form-label">Pendidikan Strata</label>
-                                <input type="text" id="pendidikan_strata" name="pendidikan_strata"
-                                    class="form-control @error('pendidikan_strata') is-invalid @enderror"
-                                    placeholder="Masukan Pendidikan Strata" required
-                                    value="{{$tendik->pendidikan_strata}}">
-                                @error('pendidikan_strata')
-                                <div class="invalid-feedback">
-                                    {{$message}}
-                                </div>
-                                @enderror
+                                <label for="pendidikan_strata_id" class="form-label">Pendidikan Strata</label>
+                                <select class="form-control select2" data-toggle="select2" data-width="100%"
+                                    name="pendidikan_strata_id">
+                                    <option selected>-</option>
+                                    @foreach ($pendidikanStrata as $item)
+                                    <option value="{{$item->id}}" {{$tendik->pendidikan_strata_id == $item->id ?
+                                        'selected' :
+                                        ''}}>{{$item->title}}</option>
+                                    @endforeach
+                                </select>
                             </div> <!-- end col -->
 
                             <div class="col-md-6 mb-3">

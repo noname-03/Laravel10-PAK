@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             JabatanTableSeeder::class,
             UnsurSeeder::class,
             JenisGuruSeeder::class,
+            PendidikanStrataSeeder::class,
             TendikSeeder::class,
         ]);
     }
