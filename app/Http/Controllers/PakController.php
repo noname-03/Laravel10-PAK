@@ -10,6 +10,7 @@ use App\Models\Pangkat;
 use App\Models\Tendik;
 use App\Models\Unsur;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Auth;
 
 class PakController extends Controller
@@ -21,7 +22,8 @@ class PakController extends Controller
         $unsur = Unsur::where('parent_id', null)->with(str_repeat('children.', $count))->get();
         $jenisGuru = jenisGuru::all();
         $pangkat = Pangkat::all();
-        return view('pages.pak.last', compact('unsur', 'jabatan', 'jenisGuru', 'pangkat'));
+        $tendik = Tendik::where('nip', Auth::user()->nip)->first();
+        return view('pages.pak.last', compact('unsur', 'jabatan', 'jenisGuru', 'pangkat', 'tendik'));
     }
 
     public function lastStore(Request $request)

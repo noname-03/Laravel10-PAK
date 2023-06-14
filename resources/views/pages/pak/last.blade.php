@@ -95,7 +95,7 @@
                                         <td>
                                             <input type="text" id="name" name="nama"
                                                 class="form-control @error('name') is-invalid @enderror"
-                                                placeholder="Nama" required>
+                                                placeholder="Nama" required value="{{$tendik->nama}}" readonly>
                                             @error('name')
                                             <div class="invalid-feedback">
                                                 {{$message}}
@@ -109,7 +109,7 @@
                                         <td>
                                             <input type="text" id="nip" name="nip"
                                                 class="form-control @error('nip') is-invalid @enderror"
-                                                placeholder="NIP" required>
+                                                placeholder="NIP" required value="{{$tendik->nip}}" readonly>
                                             @error('nip')
                                             <div class="invalid-feedback">
                                                 {{$message}}
@@ -124,7 +124,7 @@
                                             <div class="d-flex flex-row">
                                                 <input type="text" id="lahir_tempat" name="lahir_tempat"
                                                     class="form-control @error('lahir_tempat') is-invalid @enderror"
-                                                    placeholder="Tempat" required>
+                                                    placeholder="Tempat" value="{{$tendik->lahir_tempat}}" readonly>
                                                 @error('lahir_tempat')
                                                 <div class="invalid-feedback">
                                                     {{$message}}
@@ -133,7 +133,7 @@
                                                 &nbsp;
                                                 <input type="date" id="lahir_tanggal" name="lahir_tanggal"
                                                     class="form-control @error('lahir_tanggal') is-invalid @enderror"
-                                                    placeholder="Nama" required>
+                                                    placeholder="Nama" value="{{$tendik->lahir_tanggal}}" readonly>
                                                 @error('lahir_tanggal')
                                                 <div class="invalid-feedback">
                                                     {{$message}}
@@ -149,14 +149,16 @@
                                             <div class="d-flex flex-row">
                                                 <div class="form-check">
                                                     <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                                        class="form-check-input" value="l">
+                                                        class="form-check-input" value="L" {{$tendik->jenis_kelamin ==
+                                                    'L' ? 'checked' : 'disabled' }}>
                                                     <label class="form-check-label"
                                                         for="jenis_kelamin">Laki-Laki</label>
                                                 </div>
                                                 &nbsp;
                                                 <div class="form-check">
                                                     <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                                        class="form-check-input" value="p">
+                                                        class="form-check-input" value="P" {{$tendik->jenis_kelamin ==
+                                                    'P' ? 'checked' : 'disabled' }}>
                                                     <label class="form-check-label"
                                                         for="jenis_kelamin">Perempuan</label>
                                                 </div>

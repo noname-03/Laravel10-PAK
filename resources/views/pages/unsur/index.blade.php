@@ -55,7 +55,7 @@
                             @foreach ($unsur as $item)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$item->title}}</td>
+                                <td>{{ Str::limit($item->title,40)}}</td>
                                 <td>{{$item->nilai}}</td>
                                 <td>
                                     <form action="{{ route('unsur.destroy', $item->id) }}" method="POST">

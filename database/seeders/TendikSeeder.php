@@ -37,7 +37,7 @@ class TendikSeeder extends Seeder
             'pangkat_id' => 1,
             'jabatan_id' => 1,
             'jenis_guru_id' => 1,
-            'nip' => '1234567890',
+            'nip' => '123456789',
             'nama' => 'Tendik',
             'jenis_kelamin' => 'L',
             'tugas_kota' => 'Kota',
