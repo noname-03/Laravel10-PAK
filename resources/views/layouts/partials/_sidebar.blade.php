@@ -81,6 +81,12 @@
                     <span class="menu-text"> Jenis Guru </span>
                 </a>
             </li>
+            <li class="menu-item">
+                <a href="{{route('tendik.index')}}" class="menu-link">
+                    <span class="menu-icon"><i data-feather="check-circle"></i></span>
+                    <span class="menu-text"> Tendik </span>
+                </a>
+            </li>
 
             {{-- Referensi --}}
             <li class="menu-title">Referensi</li>

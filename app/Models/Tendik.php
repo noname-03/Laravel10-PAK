@@ -41,4 +41,12 @@ class Tendik extends Model
     {
         return $this->belongsTo(Pangkat::class);
     }
+    public function jabatan()
+    {
+        return $this->belongsTo(Jabatan::class);
+    }
+    public function jenisGuru()
+    {
+        return $this->belongsTo(JenisGuru::class);
+    }
 }

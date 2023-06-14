@@ -160,20 +160,20 @@
                                             <div class="d-flex flex-row">
                                                 <div class="form-check">
                                                     <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                                        class="form-check-input" value="L"
-                                                        checked={{$tendik->jenis_kelamin ==
-                                                    'L' ? 'checked' : '' }}>
+                                                        class="form-check-input" value="P" {{ ($tendik->jenis_kelamin ==
+                                                    "P") ?
+                                                    "checked" : "" }}>
                                                     <label class="form-check-label"
-                                                        for="jenis_kelamin">Laki-Laki</label>
+                                                        for="jenis_kelamin">Perempuan</label>
                                                 </div>
                                                 &nbsp;
                                                 <div class="form-check">
                                                     <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                                        class="form-check-input" value="P"
-                                                        checked={{$tendik->jenis_kelamin ==
-                                                    'P' ? 'checked' : '' }}>
+                                                        class="form-check-input" value="L" {{ ($tendik->jenis_kelamin ==
+                                                    "L") ?
+                                                    "checked" : "" }}>
                                                     <label class="form-check-label"
-                                                        for="jenis_kelamin">Perempuan</label>
+                                                        for="jenis_kelamin">Laki-Laki</label>
                                                 </div>
                                             </div>
                                         </td>
@@ -203,14 +203,16 @@
                                             <div class="d-flex flex-row">
                                                 <div class="form-check">
                                                     <input type="radio" id="pendidikan_linear" name="pendidikan_linear"
-                                                        class="form-check-input" value="1">
+                                                        class="form-check-input" value="TRUE" {{
+                                                        ($tendik->pendidikan_linear== TRUE) ?"checked" : "" }}>
                                                     <label class="form-check-label"
                                                         for="pendidikan_linear">Linear</label>
                                                 </div>
                                                 &nbsp;
                                                 <div class="form-check">
                                                     <input type="radio" id="pendidikan_linear" name="pendidikan_linear"
-                                                        class="form-check-input" value="0">
+                                                        class="form-check-input" value="FALSE" {{
+                                                        ($tendik->pendidikan_linear == FALSE) ?"checked" : "" }}>
                                                     <label class="form-check-label"
                                                         for="pendidikan_linear">Tidak</label>
                                                 </div>

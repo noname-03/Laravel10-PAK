@@ -16,4 +16,9 @@ class jenisGuru extends Model
     {
         return $this->hasMany(Pak::class);
     }
+
+    public function tendik()
+    {
+        return $this->hasMany(Tendik::class);
+    }
 }

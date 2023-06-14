@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\PangkatController;
+use App\Http\Controllers\TendikController;
 use App\Http\Controllers\UnsurController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PakController;
@@ -24,4 +25,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/pak/last/', [Pakcontroller::class, 'lastStore'])->name('pak.last.store');
     Route::resource('unsur', UnsurController::class);
     Route::resource('jenisGuru', JenisGuruController::class);
+    Route::resource('tendik', TendikController::class);
 });

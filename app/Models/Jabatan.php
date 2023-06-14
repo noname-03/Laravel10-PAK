@@ -11,4 +11,9 @@ class Jabatan extends Model
 
     protected $table = 'jabatan';
     protected $fillable = ['title'];
+
+    public function tendik()
+    {
+        return $this->hasMany(Tendik::class);
+    }
 }
