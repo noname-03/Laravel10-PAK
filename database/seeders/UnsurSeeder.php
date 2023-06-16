@@ -96,7 +96,7 @@ class UnsurSeeder extends Seeder
             'year' => 2021,
         ]);
         Unsur::create([
-            'parent_id' => 10,
+            'parent_id' => 12,
             'nilai' => null,
             'title' => 'Merencanakan dan melaksanakan pembimbingan,mengewaluasi dan menilai hasil bimbingan, menganalisis hasil bimbingan, melaksanakan tindak lanjut hasil pembimbingan',
             'year' => 2021,
@@ -146,25 +146,79 @@ class UnsurSeeder extends Seeder
         Unsur::create([
             'parent_id' => 20,
             'nilai' => null,
-            'title' => 'Memperoleh gelar/ijazah yang tidak sesuai dengan bidang yang diampunya.',
+            'title' => 'PENUNJANG TUGAS GURU',
             'year' => 2021,
         ]);
         Unsur::create([
             'parent_id' => 21,
+            'nilai' => null,
+            'title' => 'Memperoleh gelar/ijazah yang tidak sesuai dengan bidang yang diampunya.',
+            'year' => 2021,
+        ]);
+        Unsur::create([
+            'parent_id' => 22,
             'nilai' => null,
             'title' => 'Doktor.',
             'year' => 2021,
         ]);
         Unsur::create([
-            'parent_id' => 21,
+            'parent_id' => 22,
             'nilai' => null,
             'title' => 'Pascasarjana.',
             'year' => 2021,
         ]);
         Unsur::create([
-            'parent_id' => 21,
+            'parent_id' => 22,
             'nilai' => null,
             'title' => 'Sarjana.',
+            'year' => 2021,
+        ]);
+        Unsur::create([
+            'parent_id' => 21,
+            'nilai' => null,
+            'title' => 'Melaksanakan kegiatan yang mendukung tugas guru.',
+            'year' => 2021,
+        ]);
+        Unsur::create([
+            'parent_id' => 26,
+            'nilai' => null,
+            'title' => 'Membimbing siswa dalam praktik kerja nyata/praktik industri/ekstrakurikuler dan yang sejenisnya',
+            'year' => 2021,
+        ]);
+        Unsur::create([
+            'parent_id' => 26,
+            'nilai' => null,
+            'title' => 'Sebagai pengawas ujian penilaian dan evaluasi terhadap proses dan hasil belajar tingkat: Sekolah',
+            'year' => 2021,
+        ]);
+        Unsur::create([
+            'parent_id' => 26,
+            'nilai' => null,
+            'title' => 'Sebagai pengawas ujian penilaian dan evaluasi terhadap proses dan hasil belajar tingkat: Nasional',
+            'year' => 2021,
+        ]);
+        Unsur::create([
+            'parent_id' => 26,
+            'nilai' => null,
+            'title' => 'MemMenjadi anggota organisasi profesi, sebagai: Pengurus Aktif',
+            'year' => 2021,
+        ]);
+        Unsur::create([
+            'parent_id' => 26,
+            'nilai' => null,
+            'title' => 'MemMenjadi anggota organisasi profesi, sebagai: Anggota aktif PGRI',
+            'year' => 2021,
+        ]);
+        Unsur::create([
+            'parent_id' => 26,
+            'nilai' => null,
+            'title' => 'Menjadi anggota kegiatan kepramukaan sebagai: Pengurus Aktif',
+            'year' => 2021,
+        ]);
+        Unsur::create([
+            'parent_id' => 26,
+            'nilai' => null,
+            'title' => 'Menjadi anggota organisasi profesi, sebagai: Anggota Aktif',
             'year' => 2021,
         ]);
     }

@@ -7,6 +7,7 @@ use App\Http\Controllers\UnsurController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PakController;
 use App\Http\Controllers\JenisGuruController;
+use App\Http\Controllers\PakUnsurController;
 
 
 Route::get('/', function () {
@@ -21,6 +22,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('jabatan', JabatanController::class);
     Route::get('/pak', [Pakcontroller::class, 'index'])->name('pak.index');
     Route::get('/pak/create', [Pakcontroller::class, 'create'])->name('pak.create');
+    Route::get('/pak/create/biodata', [Pakcontroller::class, 'biodata'])->name('pak.biodata');
+    Route::post('/pak/biodata', [Pakcontroller::class, 'biodataStore'])->name('pak.biodata.store');
+    Route::get('/pak/create/{pakid}/unsur/{parentid}', [Pakcontroller::class, 'unsurCreate'])->name('pak.unsur.create');
+    Route::post('/pak/{id}/unsur/{parentid}', [PakUnsurController::class, 'store'])->name('pak.unsur.store');
     Route::get('/pak/last/create', [Pakcontroller::class, 'last'])->name('pak.last.create');
     Route::post('/pak/last/', [Pakcontroller::class, 'lastStore'])->name('pak.last.store');
     Route::resource('unsur', UnsurController::class);

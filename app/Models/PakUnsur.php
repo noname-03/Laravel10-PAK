@@ -21,4 +21,10 @@ class PakUnsur extends Model
         'tahun',
     ];
 
+    // relationship ke unsur
+    public function unsur()
+    {
+        return $this->belongsTo(Unsur::class, 'unsur_id');
+    }
+    
 }

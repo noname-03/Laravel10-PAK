@@ -27,4 +27,9 @@ class Unsur extends Model
     {
         return $this->hasMany(Unsur::class, 'parent_id');
     }
+    public function pakUnsur()
+    {
+        return $this->hasMany(PakUnsur::class, 'unsur_id');
+    }
+
 }

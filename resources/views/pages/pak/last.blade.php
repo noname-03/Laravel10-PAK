@@ -432,12 +432,12 @@
                             <table class="table table-bordered mb-0">
                                 <thead>
                                     <tr>
-                                        <th colspan="5">PENETAPAN ANGKA KREDIT</th>
+                                        <th colspan="6">PENETAPAN ANGKA KREDIT</th>
                                     </tr>
                                 </thead>
                                 <thead>
                                     <tr>
-                                        <td colspan="4" style="width: 60%">Unsur / Sub Unsur</td>
+                                        <td colspan="5" style="width: 60%">Unsur / Sub Unsur</td>
                                         <td style="width: 40%">Nilai</td>
                                     </tr>
                                 </thead>
@@ -447,7 +447,7 @@
                                         <tr>
                                             <th scope="row" rowspan="{{$item->count+1}}" style="width: 1%">
                                                 {{$loop->iteration}}</th>
-                                            <td colspan="3">{{$item->title}} </td>
+                                            <td colspan="4">{{$item->title}}</td>
                                             <td></td>
                                         </tr>
                                         @foreach ($item->children as $item)
@@ -457,29 +457,40 @@
                                                     chr(64+
                                                     $loop->iteration) }}
                                                 </td>
-                                                <td colspan="2">{{$item->title}}</td>
+                                                <td colspan="3">{{$item->title}}</td>
                                                 <td></td>
                                             </tr>
                                             <div>{{-- non merge --}}
                                                 @foreach ($item->children as $id => $name)
                                                 <tr>
-                                                    <td style="width: 1%">{{$loop->iteration}}</td>
-                                                    <td>{{$name->title}}
-                                                        <p style="color: #c3c1c1">Penulisan koma menggunakan "." (titik)
-                                                        </p>
-                                                    </td>
-                                                    <td>
-                                                        <input type="number" step="any" id="name"
-                                                            name="nilaiId[{{$name->id}}]"
-                                                            class="form-control @error('name') is-invalid @enderror"
-                                                            placeholder="Nilai" required>
-                                                        @error('name')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
-                                                    </td>
+                                                    <td rowspan="{{$name->count+1}}" style="width: 1%">
+                                                        {{$loop->iteration}}</td>
+                                                    <td colspan="2">{{$name->title}}</td>
+                                                    <td></td>
                                                 </tr>
+                                                <div>{{-- non merge --}}
+                                                    @foreach ($name->children as $id => $value)
+                                                    <tr>
+                                                        <td style="width: 1%">{{$loop->iteration}}</td>
+                                                        <td>{{$value->title}}
+                                                            <p style="color: #c3c1c1">Penulisan koma menggunakan "."
+                                                                (titik)
+                                                            </p>
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" step="any" id="name"
+                                                                name="nilaiId[{{$value->id}}]"
+                                                                class="form-control @error('name') is-invalid @enderror"
+                                                                placeholder="Nilai" required>
+                                                            @error('name')
+                                                            <div class="invalid-feedback">
+                                                                {{$message}}
+                                                            </div>
+                                                            @enderror
+                                                        </td>
+                                                    </tr>
+                                                    @endforeach
+                                                </div>{{-- end non merge --}}
                                                 @endforeach
                                             </div>{{-- end non merge --}}
                                         </div>{{-- end merge 2 column A --}}
@@ -488,7 +499,7 @@
                                     @endforeach
                                     <div>{{-- merge 3 column --}}
                                         <tr>
-                                            <th scope="row" colspan="4" style="width: 1%">
+                                            <th scope="row" colspan="5" style="width: 1%">
                                                 Jumlah Unsur Utama & Penunjang </th>
                                             {{-- <td colspan="4">Jumlah Unsur Utama & Penunjang</td> --}}
                                             <td>

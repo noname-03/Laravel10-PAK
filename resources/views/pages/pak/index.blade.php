@@ -56,7 +56,7 @@
                                     <div class="d-flex justify-content-around">
                                         <a href="{{route('pak.last.create')}}" class="btn btn-sm btn-success">Guru
                                             Reguler</a>
-                                        <a href="{{route('pak.create')}}" class="btn btn-sm btn-success">Guru
+                                        <a href="{{route('pak.biodata')}}" class="btn btn-sm btn-success">Guru
                                             Pemula</a>
                                     </div>
                                 </div>
@@ -78,41 +78,7 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td style="text-align: center">1</td>
-                                <td style="text-align: center">03/04/2022</td>
-                                <td style="text-align: center">Pak Terakhir</td>
-                                <td style="text-align: center">III/a</td>
-                                <td>
-                                    <button class="btn btn-sm btn-outline-success"><i class="fe-check"></i>
-                                        Diterima</button>
-                                </td>
-                                <td>SMAN 1 Cirebon</td>
-                                <td> Guru 1
-                                    <form action="{{ route('pangkat.destroy', '1') }}" method="POST">
-                                        @method('DELETE') @csrf
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                            </a>
-                                            <a href="{{ route('pangkat.edit', '1') }}"
-                                                class="btn btn-sm btn-outline-secondary">
-                                                <i class="fe-edit"></i>
-                                            </a>
-                                            <a href="{{ route('pangkat.edit', '1') }}"
-                                                class="btn btn-sm btn-outline-info">
-                                                <i class="fe-info"></i>
-                                            </a>
-                                            <button type="submit"
-                                                onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"
-                                                class="btn btn-sm btn-outline-danger">
-                                                <i class="fe-trash"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-
-                                </td>
-                            </tr>
-                            @foreach ($pak as $item)
-                            <tr>
+                            @foreach ($pak as $item) <tr>
                                 <td style="text-align: center">{{$loop->iteration}}</td>
                                 <td style="text-align: center">{{$item->created_at}}</td>
                                 <td style="text-align: center">{{$item->pak_priode}}</td>
