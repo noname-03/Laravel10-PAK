@@ -37,5 +37,9 @@ class Pak extends Model
     {
         return $this->belongsTo(JenisGuru::class);
     }
+    public function pakUnsur()
+    {
+        return $this->hasMany(PakUnsur::class, 'pak_id');
+    }
 
 }

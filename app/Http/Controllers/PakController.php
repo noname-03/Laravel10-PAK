@@ -218,6 +218,115 @@ class PakController extends Controller
         return view('pages.pak.unsur', compact('dataSekarang', 'pak', 'pakUnsurs', 'prev', 'next'));
     }
 
+    public function confirm($pakID)
+    {
+        $count = Unsur::count();
+        $unsur = Unsur::where('parent_id', null)->with(str_repeat('children.', $count))->get();
+        $pak = Pak::where('user_id', Auth::user()->id)
+            ->where('created_at', '<', Pak::select('created_at')
+                ->where('user_id', Auth::user()->id)
+                ->orderBy('created_at', 'desc')
+                ->limit(1)
+                ->first()->created_at)
+            ->get();
+
+        // foreach ($pak as $item) {
+        //     $data = getNilaiLama($item, $item->id, $unsurId); // Ganti $unsurId dengan nilai unsur_id yang diinginkan
+        // }
+        // return response()->json($pak);
+        // foreach ($pak as $item) {
+        //     dd($item->id);
+        // }
+        // dd($pak);
+        // var_dump($pak);
+
+
+        $unsur->transform(function ($obj) use ($pakID, $pak) {
+            $obj['count'] = $obj['children']->count(); //unsur utama
+
+            foreach ($obj['children'] as $child) {
+                $child['count'] = $child['children']->count(); // pendidikan dan setingkatnya
+                $obj['count'] += $child['count']; // Menambahkan count child pertama ke count parent
+
+                foreach ($child['children'] as $grandchild) {
+                    $grandchild['count'] = $grandchild['children']->count(); // mengikuti pendidikan dan setingkatnya
+                    $obj['count'] += $grandchild['count']; // Menambahkan count child kedua ke count parent
+                    $child['count'] += $grandchild['count']; // Menambahkan count child kedua ke count parent
+
+                    foreach ($grandchild['children'] as $greatGrandchild) {
+                        $greatGrandchild['count'] = $greatGrandchild['children']->count(); // mengikuti pendidikan dan setingkatnya
+                        $obj['count'] += $greatGrandchild['count']; // Menambahkan count child kedua ke count parent
+                        $grandchild['count'] += $greatGrandchild['count']; // Menambahkan count child kedua ke count parent
+                        $child['count'] += $greatGrandchild['count']; // Menambahkan count child kedua ke count parent
+
+                        // Tambahkan field nilai lama
+                        $nilaiLama = $greatGrandchild['nilai'];
+
+                        foreach ($pak as $item) {
+                            // Mendapatkan nilai berdasarkan pak_id dan unsur_id dari PakUnsur
+                            $pakUnsurs = PakUnsur::where('pak_id', $item->id)
+                                ->where('unsur_id', $greatGrandchild->id)
+                                ->get();
+
+                            if ($pakUnsurs->count() > 0) {
+                                foreach ($pakUnsurs as $pakUnsur) {
+                                    $nilaiLama += $pakUnsur->nilai;
+                                }
+                            }
+                        }
+
+                        $greatGrandchild['nilai_lama'] = $nilaiLama;
+
+                        // Mendapatkan nilai berdasarkan pak_id dan unsur_id dari PakUnsur
+                        $pakUnsurs = PakUnsur::where('pak_id', $pakID)
+                            ->where('unsur_id', $greatGrandchild->id)
+                            ->get();
+
+                        if ($pakUnsurs->count() > 0) {
+                            $nilai = $greatGrandchild['nilai'];
+                            foreach ($pakUnsurs as $pakUnsur) {
+                                // dd($pakUnsur);
+                                $nilai += $pakUnsur->nilai;
+                            }
+                            $greatGrandchild['nilai'] = $nilai; // Mengubah nilai pada grandchild
+                        } else {
+                            $greatGrandchild['nilai'] = null; // Atur nilai menjadi null jika tidak ditemukan
+                        }
+                    }
+                }
+            }
+
+            return $obj;
+        });
+
+        // return response()->json($unsur);
+
+        return view('pages.pak.confirm', compact('unsur'));
+    }
+
+    function getNilaiLama($data, $pakId, $unsurId)
+    {
+        // dd($data);
+        foreach ($data->pakUnsur as $item) {
+            $pakUnsurs = PakUnsur::where('pak_id', $pakId)
+                ->where('unsur_id', $unsurId)
+                ->get();
+
+            // return response()->json($pakUnsurs);
+
+            if ($pakUnsurs->count() > 0) {
+                $nilai = $item->nilai;
+                foreach ($pakUnsurs as $pakUnsur) {
+                    $nilai += $pakUnsur->nilai;
+                }
+                return $item->nilai_lama = $nilai; // Mengubah nilai pada item
+            } else {
+                return $item->nilai_lama = null; // Atur nilai menjadi null jika tidak ditemukan
+            }
+        }
+    }
+
+
     public function store(Request $request)
     {
         //

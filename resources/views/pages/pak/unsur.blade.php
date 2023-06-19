@@ -146,7 +146,7 @@
                         <a href="{{route('pak.unsur.create', [$pak->id, $next])}}" class="btn btn-primary"
                             id="nextButton">Next</a>
                         @else
-                        <a href="#" class="btn btn-primary" id="prevButton">Next</a>
+                        <a href="{{route('pak.confirm', $pak->id)}}" class="btn btn-primary" id="prevButton">Next</a>
                         @endif
                     </div>
                 </div> <!-- end card-body-->

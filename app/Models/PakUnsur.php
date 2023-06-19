@@ -26,5 +26,11 @@ class PakUnsur extends Model
     {
         return $this->belongsTo(Unsur::class, 'unsur_id');
     }
-    
+
+    // relationship ke pak
+    public function pak()
+    {
+        return $this->belongsTo(Pak::class, 'pak_id');
+    }
+
 }

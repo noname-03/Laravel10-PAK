@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pak/create/biodata', [Pakcontroller::class, 'biodata'])->name('pak.biodata');
     Route::post('/pak/biodata', [Pakcontroller::class, 'biodataStore'])->name('pak.biodata.store');
     Route::get('/pak/create/{pakid}/unsur/{parentid}', [Pakcontroller::class, 'unsurCreate'])->name('pak.unsur.create');
+    Route::get('/pak/{pakid}/confirm', [Pakcontroller::class, 'confirm'])->name('pak.confirm');
     Route::post('/pak/{id}/unsur/{parentid}', [PakUnsurController::class, 'store'])->name('pak.unsur.store');
     Route::get('/pak/last/create', [Pakcontroller::class, 'last'])->name('pak.last.create');
     Route::post('/pak/last/', [Pakcontroller::class, 'lastStore'])->name('pak.last.store');
