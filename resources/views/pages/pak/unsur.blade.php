@@ -102,11 +102,10 @@
                             </div>
                             <div class="col-2 mb-3">
                                 <div class="col-12 mt-4">
-                                    <button type="submit" class="btn btn-primary">+</button>
+                                    <button type="submit" class="btn btn-success">+</button>
                                 </div>
                             </div>
                         </div>
-                        {{-- <button type="submit" class="btn btn-primary waves-effect waves-light">Simpan</button> --}}
                     </form>
 
                     <div class="table-responsive">
@@ -115,21 +114,51 @@
                                 <tr>
                                     <th style="width: 5%">No</th>
                                     <th style="width: 40%">Sub Unsur / Kategori</th>
-                                    <th style="width: 35%">Judul</th>
-                                    <th style="width: 10%">Tahun</th>
-                                    <th style="width: 10%">Nilai</th>
+                                    <th style="width: 25%">Judul</th>
+                                    <th style="width: 5%">Tahun</th>
+                                    <th style="width: 15%">Nilai</th>
+                                    <th style="width: 10%">action</th>
                                 </tr>
                                 <tr>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($pakUnsurs as $item)
+
                                 <tr>
-                                    <th scope="row">{{$loop->iteration}}</th>
-                                    <td>{{$item->unsur->title}}</td>
-                                    <td>{{$item->title}}</td>
-                                    <td>{{$item->tahun}}</td>
-                                    <td>{{$item->nilai}}</td>
+                                    <th scope="row">{{ $loop->iteration }}</th>
+                                    <td>{{ $item->unsur->title }}</td>
+                                    <td>
+                                        <a href="{{ asset('storage/file/'.$item->dokumen) }}" target="_blank">{{
+                                            $item->title }}<a />
+                                    </td>
+                                    <td>{{ $item->tahun }}</td>
+
+                                    <form
+                                        action="{{ route('pak.unsur.update', [$pak['id'], $dataSekarang['id'], $item->id]) }}"
+                                        method="post">
+                                        @csrf @method('PUT')
+                                        <td>
+                                            <input type="number" step="any" id="nilai" name="nilai" class="form-control"
+                                                value="{{$item->nilai}}">
+                                        </td>
+                                        <td>
+                                            <button type="submit" class="btn btn-sm btn-outline-secondary">
+                                                Perbarui
+                                            </button>
+                                    </form>
+                                    <form
+                                        action="{{ route('pak.unsur.destroy', [$pak['id'], $dataSekarang['id'], $item->id]) }}"
+                                        method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"
+                                            class="btn btn-sm btn-outline-danger">
+                                            Hapus
+                                        </button>
+                                    </form>
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>

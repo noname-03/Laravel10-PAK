@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pak/create/{pakid}/unsur/{parentid}', [Pakcontroller::class, 'unsurCreate'])->name('pak.unsur.create');
     Route::get('/pak/{pakid}/confirm', [Pakcontroller::class, 'confirm'])->name('pak.confirm');
     Route::post('/pak/{id}/unsur/{parentid}', [PakUnsurController::class, 'store'])->name('pak.unsur.store');
+    Route::put('/pak/{id}/unsur/{parentid}/pakunsur/{pakunsurid}', [PakUnsurController::class, 'update'])->name('pak.unsur.update');
+    Route::delete('/pak/{id}/unsur/{parentid}/pakunsur/{pakunsurid}', [PakUnsurController::class, 'destroy'])->name('pak.unsur.destroy');
     Route::get('/pak/last/create', [Pakcontroller::class, 'last'])->name('pak.last.create');
     Route::post('/pak/last/', [Pakcontroller::class, 'lastStore'])->name('pak.last.store');
     Route::resource('unsur', UnsurController::class);

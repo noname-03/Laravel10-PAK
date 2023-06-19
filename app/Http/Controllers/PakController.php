@@ -230,16 +230,6 @@ class PakController extends Controller
                 ->first()->created_at)
             ->get();
 
-        // foreach ($pak as $item) {
-        //     $data = getNilaiLama($item, $item->id, $unsurId); // Ganti $unsurId dengan nilai unsur_id yang diinginkan
-        // }
-        // return response()->json($pak);
-        // foreach ($pak as $item) {
-        //     dd($item->id);
-        // }
-        // dd($pak);
-        // var_dump($pak);
-
 
         $unsur->transform(function ($obj) use ($pakID, $pak) {
             $obj['count'] = $obj['children']->count(); //unsur utama
@@ -299,7 +289,6 @@ class PakController extends Controller
             return $obj;
         });
 
-        // return response()->json($unsur);
 
         return view('pages.pak.confirm', compact('unsur'));
     }
