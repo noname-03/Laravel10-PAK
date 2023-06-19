@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Illuminate\Support\Str;
+use Spatie\Permission\Models\Role;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,7 +15,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
+        $admin = User::create([
             'name' => 'Admin',
             'email' => 'admin@mail.com',
             'email_verified_at' => now(),
@@ -22,7 +23,11 @@ class UsersTableSeeder extends Seeder
             // password
             'remember_token' => Str::random(10),
         ]);
-        User::create([
+        Role::create(['name' => 'admin']);
+        $admin->assignRole('admin');
+
+
+        $user = User::create([
             'name' => 'User',
             'email' => 'user@mail.com',
             'email_verified_at' => now(),
@@ -31,7 +36,10 @@ class UsersTableSeeder extends Seeder
             'nip' => '1234567890',
             'remember_token' => Str::random(10),
         ]);
-        User::create([
+        Role::create(['name' => 'user']);
+        $user->assignRole('user');
+
+        $user1 = User::create([
             'name' => 'User1',
             'email' => 'user1@mail.com',
             'email_verified_at' => now(),
@@ -40,5 +48,6 @@ class UsersTableSeeder extends Seeder
             'nip' => '123456789',
             'remember_token' => Str::random(10),
         ]);
+        $user1->assignRole('user');
     }
 }

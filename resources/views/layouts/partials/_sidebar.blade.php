@@ -3,15 +3,17 @@
     <!-- Brand Logo -->
     <div class="logo-box">
         <!-- Brand Logo Light -->
-        <a href="index.html" class="logo-light">
-            <img src="{{ asset('/') }}assets/images/logo-light.png" alt="logo" class="logo-lg">
-            <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm">
+        <a href="{{route('home')}}" class="logo-light">
+            {{-- <img src="{{ asset('/') }}assets/images/logo-light.png" alt="logo" class="logo-lg">
+            <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm"> --}}
+            <h2>PAK</h2>
         </a>
 
         <!-- Brand Logo Dark -->
-        <a href="index.html" class="logo-dark">
-            <img src="{{ asset('/') }}assets/images/logo-dark.png" alt="dark logo" class="logo-lg">
-            <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm">
+        <a href="{{route('home')}}" class="logo-dark">
+            <h2>PAK</h2>
+            {{-- <img src="{{ asset('/') }}assets/images/logo-dark.png" alt="dark logo" class="logo-lg">
+            <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm"> --}}
         </a>
     </div>
 
@@ -53,7 +55,7 @@
                 </a>
             </li>
 
-
+            @role('admin')
             {{-- Data --}}
             <li class="menu-title">Data</li>
 
@@ -87,6 +89,7 @@
                     <span class="menu-text"> Tendik </span>
                 </a>
             </li>
+            @endrole
 
             {{-- Referensi --}}
             <li class="menu-title">Referensi</li>

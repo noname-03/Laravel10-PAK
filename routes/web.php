@@ -18,8 +18,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth'])->group(function () {
-    Route::resource('pangkat', PangkatController::class);
-    Route::resource('jabatan', JabatanController::class);
+
+    Route::resource('pangkat', PangkatController::class)->middleware('role:admin');
+    Route::resource('jabatan', JabatanController::class)->middleware('role:admin');
+    Route::resource('unsur', UnsurController::class)->middleware('role:admin');
+    Route::resource('jenisGuru', JenisGuruController::class)->middleware('role:admin');
+    Route::resource('tendik', TendikController::class)->middleware('role:admin');
+
     Route::get('/pak', [Pakcontroller::class, 'index'])->name('pak.index');
     Route::get('/pak/create', [Pakcontroller::class, 'create'])->name('pak.create');
     Route::get('/pak/create/biodata', [Pakcontroller::class, 'biodata'])->name('pak.biodata');
@@ -31,7 +36,4 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/pak/{id}/unsur/{parentid}/pakunsur/{pakunsurid}', [PakUnsurController::class, 'destroy'])->name('pak.unsur.destroy');
     Route::get('/pak/last/create', [Pakcontroller::class, 'last'])->name('pak.last.create');
     Route::post('/pak/last/', [Pakcontroller::class, 'lastStore'])->name('pak.last.store');
-    Route::resource('unsur', UnsurController::class);
-    Route::resource('jenisGuru', JenisGuruController::class);
-    Route::resource('tendik', TendikController::class);
 });
