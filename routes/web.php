@@ -27,6 +27,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/pak', [Pakcontroller::class, 'index'])->name('pak.index');
     Route::get('/pak/create', [Pakcontroller::class, 'create'])->name('pak.create');
+    Route::get('/pak/edit/{id}/biodata', [Pakcontroller::class, 'biodataEdit'])->name('pak.biodata.edit');
+    Route::put('/pak/update/{id}/biodata', [Pakcontroller::class, 'biodataUpdate'])->name('pak.biodata.update');
+    Route::delete('/pak/{id}/destroy', [Pakcontroller::class, 'destroy'])->name('pak.destroy');
     Route::get('/pak/create/biodata', [Pakcontroller::class, 'biodata'])->name('pak.biodata');
     Route::post('/pak/biodata', [Pakcontroller::class, 'biodataStore'])->name('pak.biodata.store');
     Route::get('/pak/create/{pakid}/unsur/{parentid}', [Pakcontroller::class, 'unsurCreate'])->name('pak.unsur.create');

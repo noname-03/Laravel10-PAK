@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('pak_unsur', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pak_id')->constrained('pak');
+            $table->foreignId('pak_id')->constrained('pak')->onDelete('cascade');
             $table->foreignId('unsur_id')->constrained('unsur');
             $table->double('nilai');
             $table->string('dokumen')->nullable();

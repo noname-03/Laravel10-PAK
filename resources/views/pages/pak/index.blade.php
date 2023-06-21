@@ -40,8 +40,10 @@
                     <p class="text-muted font-13 mb-2 mt-2">
                         {{-- <a href="{{route('pangkat.create')}}" class="btn btn-sm btn-success">Tambah Data</a> --}}
                         <!-- Small modal -->
+                        @role('user')
                         <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
                             data-bs-target="#bs-example-modal-sm">Buat DUPAK</button>
+                        @endrole
                     </p>
                     <div class="modal fade" id="bs-example-modal-sm" tabindex="-1" role="dialog"
                         aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -78,28 +80,24 @@
                         </thead>
 
                         <tbody>
-                            @foreach ($pak as $item) <tr>
+                            @foreach ($dataPak as $item) <tr>
                                 <td style="text-align: center">{{$loop->iteration}}</td>
                                 <td style="text-align: center">{{$item->created_at}}</td>
                                 <td style="text-align: center">{{$item->pak_priode}}</td>
-                                <td style="text-align: center">{{$tendik->pangkat->title}}</td>
+                                <td style="text-align: center">{{$item->user->tendik->pangkat->title}}</td>
                                 <td>
                                     <button class="btn btn-sm btn-outline-success"><i class="fe-check"></i>
                                         {{$item->status}}</button>
                                 </td>
                                 <td>{{$item->tugas_sekolah}}</td>
-                                <td> {{$tendik->nama}}
-                                    <form action="{{ route('pangkat.destroy', '1') }}" method="POST">
+                                <td> {{$item->user->tendik->nama}}
+                                    <form action="{{ route('pak.destroy', $item->id) }}" method="POST">
                                         @method('DELETE') @csrf
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             </a>
-                                            <a href="{{ route('pangkat.edit', '1') }}"
+                                            <a href="{{ route('pak.biodata.edit', $item->id) }}"
                                                 class="btn btn-sm btn-outline-secondary">
                                                 <i class="fe-edit"></i>
-                                            </a>
-                                            <a href="{{ route('pangkat.edit', '1') }}"
-                                                class="btn btn-sm btn-outline-info">
-                                                <i class="fe-info"></i>
                                             </a>
                                             <button type="submit"
                                                 onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"

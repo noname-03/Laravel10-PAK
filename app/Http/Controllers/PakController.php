@@ -11,6 +11,7 @@ use App\Models\PendidikanStrata;
 use App\Models\Tendik;
 use App\Models\Unsur;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Auth;
 
 class PakController extends Controller
@@ -99,9 +100,13 @@ class PakController extends Controller
     }
     public function index()
     {
-        $pak = Pak::all();
-        $tendik = Tendik::where('nip', Auth::user()->nip)->first();
-        return view('pages.pak.index', compact('pak', 'tendik'));
+        if (Auth::user()->hasRole('admin')) {
+            $dataPak = Pak::with('user.tendik') // Menggunakan eager loading untuk memuat data terkait
+                ->get();
+        } else if (Auth::user()->hasRole('user')) {
+            $dataPak = Pak::where('user_id', Auth::user()->id)->with('user.tendik')->get();
+        }
+        return view('pages.pak.index', compact('dataPak'));
     }
 
     public function create()
@@ -315,28 +320,92 @@ class PakController extends Controller
         }
     }
 
+    public function biodataEdit($id)
+    {
+        $pak = Pak::findOrFail($id);
+        $tendik = Tendik::where('nip', Auth::user()->nip)->first();
+        $jenisGuru = jenisGuru::all();
 
-    public function store(Request $request)
-    {
-        //
-    }
-    public function show(string $id)
-    {
-        //
-    }
+        return view('pages.pak.edit', compact('tendik', 'jenisGuru', 'pak'));
 
-    public function edit(string $id)
-    {
-        //
     }
 
-    public function update(Request $request, string $id)
+    public function biodataUpdate(Request $request, $id)
     {
-        //
+        $pak = Pak::findOrFail($id);
+
+        if ($request->hasFile('pak_terakhir')) {
+            $dokPakTerkhirName = time() . '.' . 'pak_terakhir' . '.' . $request->pak_terakhir->extension();
+            $request->pak_terakhir->storeAs('public/file/', $dokPakTerkhirName);
+            Storage::delete('public/file/' . $pak->dok_pak_terakhir);
+        } else {
+            $dokPakTerkhirName = $pak->dok_pak_terakhir;
+        }
+
+        if ($request->hasFile('pak_penyesuaian')) {
+            $dokPakPenyesuaian = time() . '.' . 'pak_penyesuaian' . '.' . $request->pak_penyesuaian->extension();
+            $request->pak_penyesuaian->storeAs('public/file/', $dokPakPenyesuaian);
+            Storage::delete('public/file/' . $pak->dok_pak_penyesuaian);
+        } else {
+            $dokPakPenyesuaian = $pak->dok_pak_penyesuaian;
+        }
+
+        if ($request->hasFile('pangkat_terakhir')) {
+            $dokPangkatTerakhir = time() . '.' . 'pangkat_terakhir' . '.' . $request->pangkat_terakhir->extension();
+            $request->pangkat_terakhir->storeAs('public/file/', $dokPangkatTerakhir);
+            Storage::delete('public/file/' . $pak->dok_pangkat_terakhir);
+        } else {
+            $dokPangkatTerakhir = $pak->dok_pangkat_terakhir;
+        }
+
+        if ($request->hasFile('ijazah_terakhir')) {
+            $dokIjazahTerakhir = time() . '.' . 'ijazah_terakhir' . '.' . $request->ijazah_terakhir->extension();
+            $request->ijazah_terakhir->storeAs('public/file/', $dokIjazahTerakhir);
+            Storage::delete('public/file/' . $pak->dok_ijazah_terakhir);
+        } else {
+            $dokIjazahTerakhir = $pak->dok_ijazah_terakhir;
+        }
+
+
+
+        $pak->update([
+            'user_id' => Auth::user()->id,
+            'jenis_guru_id' => $request->jenis_guru_id,
+            'tugas_kota' => $request->tugas_kota,
+            'tugas_sekolah' => $request->tugas_sekolah,
+            'tugas_mengajar' => $request->tugas_mengajar,
+            'status' => 'menunggu',
+            'pak_priode' => $request->pak_priode,
+            'dok_pak_terakhir' => $dokPakTerkhirName,
+            'dok_pak_penyesuaian' => $dokPakPenyesuaian,
+            'dok_pangkat_terakhir' => $dokPangkatTerakhir,
+            'dok_ijazah_terakhir' => $dokIjazahTerakhir,
+        ]);
+
+        $count = Unsur::count();
+        $unsur = Unsur::where('parent_id', null)->with(str_repeat('children.', $count))->get();
+
+        $unsur = $unsur->reduce(function ($carry, $obj) {
+            foreach ($obj->children as $item) {
+                $carry[] = $item->toArray();
+            }
+            return $carry;
+        }, []);
+
+        $data = $unsur;
+        $id = $data[0]['id']; // ID yang sedang diproses
+
+        return redirect()->route('pak.unsur.create', [$pak->id, $id]);
     }
 
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $pak = Pak::findOrFail($id);
+        Storage::delete('public/file/' . $pak->dok_pak_terakhir);
+        Storage::delete('public/file/' . $pak->dok_pak_penyesuaian);
+        Storage::delete('public/file/' . $pak->dok_pangkat_terakhir);
+        Storage::delete('public/file/' . $pak->dok_ijazah_terakhir);
+        $pak->delete();
+        return redirect()->route('pak.index');
     }
 }
