@@ -79,10 +79,10 @@
                             </div> <!-- end col -->
 
                             <div class="col-md-6 mb-3">
-                                <label for="year" class="form-label">Tahun</label>
-                                <input type="number" id="year" name="year"
+                                {{-- <label for="year" class="form-label">Tahun</label> --}}
+                                <input type="hidden" id="year" name="year"
                                     class="form-control @error('year') is-invalid @enderror"
-                                    placeholder="Masukan Tahun Unsur" required>
+                                    placeholder="Masukan Tahun Unsur" value="0" required>
                                 @error('year')
                                 <div class="invalid-feedback">
                                     {{$message}}

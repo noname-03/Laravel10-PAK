@@ -36,7 +36,7 @@
                     <span class="menu-text"> PAK </span>
                 </a>
             </li>
-            <li class="menu-item">
+            {{-- <li class="menu-item">
                 <a href="#" class="menu-link">
                     <span class="menu-icon"><i data-feather="printer"></i></span>
                     <span class="menu-text"> Cetak </span>
@@ -53,7 +53,7 @@
                     <span class="menu-icon"><i data-feather="download"></i></span>
                     <span class="menu-text"> Unduh </span>
                 </a>
-            </li>
+            </li> --}}
 
             @role('admin')
             {{-- Data --}}
@@ -92,7 +92,7 @@
             @endrole
 
             {{-- Referensi --}}
-            <li class="menu-title">Referensi</li>
+            {{-- <li class="menu-title">Referensi</li>
 
             <li class="menu-item">
                 <a href="#" class="menu-link">
@@ -111,7 +111,7 @@
                     <span class="menu-icon"><i class="icon-question"></i></span>
                     <span class="menu-text"> FAQ </span>
                 </a>
-            </li>
+            </li> --}}
 
         </ul>
         <!--- End Menu -->

@@ -41,8 +41,12 @@
                         {{-- <a href="{{route('pangkat.create')}}" class="btn btn-sm btn-success">Tambah Data</a> --}}
                         <!-- Small modal -->
                         @role('user')
+                        @if ($count > 0)
+                        <a href="{{route('pak.biodata')}}" class="btn btn-sm btn-success">Buat Dupak Reguler</a>
+                        @else
                         <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
                             data-bs-target="#bs-example-modal-sm">Buat DUPAK</button>
+                        @endif
                         @endrole
                     </p>
                     <div class="modal fade" id="bs-example-modal-sm" tabindex="-1" role="dialog"
@@ -74,7 +78,7 @@
                                 <th style="width: 2%">Priode</th>
                                 <th style="width: 5%">Usulan</th>
                                 <th style="width: 10%">Status</th>
-                                <th style="width: 33%">Unit Kerja</th>
+                                <th style="width: 33%">Satuan Pendidikan</th>
                                 <th style="width: 43%">Nama</th>
                             </tr>
                         </thead>

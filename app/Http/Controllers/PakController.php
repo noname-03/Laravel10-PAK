@@ -103,10 +103,12 @@ class PakController extends Controller
         if (Auth::user()->hasRole('admin')) {
             $dataPak = Pak::with('user.tendik') // Menggunakan eager loading untuk memuat data terkait
                 ->get();
+            $count = 0;
         } else if (Auth::user()->hasRole('user')) {
             $dataPak = Pak::where('user_id', Auth::user()->id)->with('user.tendik')->get();
+            $count = Pak::where('user_id', Auth::user()->id)->with('user.tendik')->count();
         }
-        return view('pages.pak.index', compact('dataPak'));
+        return view('pages.pak.index', compact('dataPak', 'count'));
     }
 
     public function create()

@@ -92,7 +92,7 @@ Home
                 <div class="card-body">
                     <div class="row">
                         <div class="col-6">
-                            <div class="avatar-sm bg-info rounded">
+                            <div class="avatar-sm bg-danger rounded">
                                 <i class="fe-x avatar-title font-22 text-white"></i>
                             </div>
                         </div>
