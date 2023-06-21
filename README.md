@@ -28,16 +28,19 @@ Copy file .env.example .env
 <p>Set your database in .env</p>
 
 <p>Generate Key</p>
+
 ```bash
   php artisan key:generate
 ```
 
 <p>Migrate database with seeder</p>
+
 ```bash
   php artisan migrate --seed
 ```
 
-RUN!
+<h2>RUN!</h2>>
+
 ```bash
   php artisan serve
 ```
