@@ -4,6 +4,7 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\PangkatController;
 use App\Http\Controllers\TendikController;
 use App\Http\Controllers\UnsurController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PakController;
 use App\Http\Controllers\JenisGuruController;
@@ -24,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('unsur', UnsurController::class)->middleware('role:admin');
     Route::resource('jenisGuru', JenisGuruController::class)->middleware('role:admin');
     Route::resource('tendik', TendikController::class)->middleware('role:admin');
+    Route::resource('user', UserController::class)->middleware('role:admin');
 
     Route::get('/pak', [Pakcontroller::class, 'index'])->name('pak.index');
     Route::get('/pak/create', [Pakcontroller::class, 'create'])->name('pak.create');
