@@ -105,7 +105,7 @@
                                 </td>
                                 <td>{{$item->tugas_sekolah}}</td>
                                 <td> {{$item->user->tendik->nama}} <br>
-                                    @role('admin')
+                                    @role(['admin', 'user'])
                                     <form action="{{ route('pak.destroy', $item->id) }}" method="POST">
                                         @method('DELETE') @csrf
                                         <div class="btn-group" role="group" aria-label="Basic example">
@@ -121,29 +121,13 @@
                                             </button>
                                         </div>
                                         @endrole
-                                        @role('user')
-                                        <form action="{{ route('pak.destroy', $item->id) }}" method="POST">
-                                            @method('DELETE') @csrf
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                </a>
-                                                <a href="{{ route('pak.biodata.edit', $item->id) }}"
-                                                    class="btn btn-sm btn-outline-secondary">
-                                                    <i class="fe-edit"></i>
-                                                </a>
-                                                <button type="submit"
-                                                    onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"
-                                                    class="btn btn-sm btn-outline-danger">
-                                                    <i class="fe-trash"></i>
-                                                </button>
-                                            </div>
-                                            @endrole
-                                            @role('penilai')
-                                            <a href="{{ route('pak.biodata.edit', $item->id) }}"
-                                                class="btn btn-sm btn-outline-secondary">
-                                                <i class="fe-edit"></i>
-                                            </a>
-                                            @endrole
-                                        </form>
+                                        @role('penilai')
+                                        <a href="{{ route('pak.biodata.edit', $item->id) }}"
+                                            class="btn btn-sm btn-outline-secondary">
+                                            <i class="fe-edit"></i>
+                                        </a>
+                                        @endrole
+                                    </form>
 
                                 </td>
                             </tr>
