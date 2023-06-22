@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('jenis_guru_id')->constrained('jenis_guru');
+            $table->foreignId('by_user_id')->nullable()->constrained('users');
             $table->string('tugas_kota');
             $table->string('tugas_sekolah');
             $table->string('tugas_mengajar');
@@ -26,6 +27,7 @@ return new class extends Migration {
             $table->date('pak_awal')->nullable();
             $table->date('pak_akhir')->nullable();
             $table->year('pak_priode');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

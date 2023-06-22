@@ -25,12 +25,19 @@ class Pak extends Model
         'pak_no',
         'pak_awal',
         'pak_akhir',
-        'pak_priode'
+        'pak_priode',
+        'note',
+        'by_user_id'
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function byUser()
+    {
+        return $this->belongsTo(User::class, 'by_user_id');
     }
 
     public function jenis_guru()

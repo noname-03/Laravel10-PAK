@@ -45,7 +45,7 @@
                                     <label class="col-md-6 col-form-label" for="nip">NIP</label>
                                     <div class="col-12">
                                         <input type="text" class="form-control" id="nip" name="nip"
-                                            value="{{$tendik->nip}}" readonly>
+                                            value="{{$pak->user->tendik->nip}}" readonly>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -53,7 +53,7 @@
                                     <div class="col-12">
                                         <input type="text" id="name" name="nama"
                                             class="form-control @error('name') is-invalid @enderror" placeholder="Nama"
-                                            required value="{{$tendik->nama}}" readonly>
+                                            required value="{{$pak->user->tendik->nama}}" readonly>
                                         @error('name')
                                         <div class="invalid-feedback">
                                             {{$message}}
@@ -68,7 +68,8 @@
                                         <div class="col-sm-3 col-md-6">
                                             <input type="text" id="lahir_tempat" name="lahir_tempat"
                                                 class="form-control @error('lahir_tempat') is-invalid @enderror"
-                                                placeholder="Tempat" value="{{$tendik->lahir_tempat}}" readonly>
+                                                placeholder="Tempat" value="{{$pak->user->tendik->lahir_tempat}}"
+                                                readonly>
                                             @error('lahir_tempat')
                                             <div class="invalid-feedback">
                                                 {{$message}}
@@ -78,7 +79,8 @@
                                         <div class="col-sm-3 col-md-6">
                                             <input type="date" id="lahir_tanggal" name="lahir_tanggal"
                                                 class="form-control @error('lahir_tanggal') is-invalid @enderror"
-                                                placeholder="Nama" value="{{$tendik->lahir_tanggal}}" readonly>
+                                                placeholder="Nama" value="{{$pak->user->tendik->lahir_tanggal}}"
+                                                readonly>
                                             @error('lahir_tanggal')
                                             <div class="invalid-feedback">
                                                 {{$message}}
@@ -93,7 +95,8 @@
                                         <div class="col-sm-3 col-md-6">
                                             <div class="form-check">
                                                 <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                                    class="form-check-input" value="P" {{ ($tendik->jenis_kelamin ==
+                                                    class="form-check-input" value="P" {{
+                                                    ($pak->user->tendik->jenis_kelamin ==
                                                 "P") ?
                                                 "checked" : "disabled" }}>
                                                 <label class="form-check-label" for="jenis_kelamin">Perempuan</label>
@@ -102,7 +105,8 @@
                                         <div class="col-sm-3 col-md-6">
                                             <div class="form-check">
                                                 <input type="radio" id="jenis_kelamin" name="jenis_kelamin"
-                                                    class="form-check-input" value="L" {{ ($tendik->jenis_kelamin ==
+                                                    class="form-check-input" value="L" {{
+                                                    ($pak->user->tendik->jenis_kelamin ==
                                                 "L") ?
                                                 "checked" : "disabled" }}>
                                                 <label class="form-check-label" for="jenis_kelamin">Laki-Laki</label>
@@ -115,7 +119,7 @@
                                         Golongan Ruang. TMT</label>
                                     <div class="col-12">
                                         <input type="text" class="form-control" id="pangkat_id" name="pangkat_id"
-                                            value="{{$tendik->pangkat->title}}" readonly>
+                                            value="{{$pak->user->tendik->pangkat->title}}" readonly>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -123,9 +127,32 @@
                                         TMT</label>
                                     <div class="col-12">
                                         <input type="text" class="form-control" id="jabatan_id" name="jabatan_id"
-                                            value="{{$tendik->jabatan->title}}" readonly>
+                                            value="{{$pak->user->tendik->jabatan->title}}" readonly>
                                     </div>
                                 </div>
+                                @role('admin')
+                                <div class="mb-3">
+                                    <label class="col-md-4 col-form-label" for="userName">Status</label>
+                                    <div class="col-12">
+                                        <select class="form-control select2" data-toggle="select2" data-width="100%"
+                                            name="status">
+                                            <option value="sukses" {{$pak->status === 'suskses' ? 'selected' : ''}}
+                                                >Sukses</option>
+                                            <option value="menunggu" {{$pak->status === 'menunggu' ? 'selected' :
+                                                ''}}>Menunggu</option>
+                                            <option value="revisi" {{$pak->status === 'revisi' ? 'selected' :
+                                                ''}}>Revisi</option>
+                                            <option value="gagal" {{$pak->status === 'gagal' ? 'selected' : ''}}>Gagal
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="note" class="form-label">Keterangan</label>
+                                    <textarea class="form-control" id="note" rows="3"
+                                        name="note">{{$pak->note}}</textarea>
+                                </div>
+                                @endrole
 
                                 <!-- Step 1 form fields -->
                             </div>

@@ -90,8 +90,18 @@
                                 <td style="text-align: center">{{$item->pak_priode}}</td>
                                 <td style="text-align: center">{{$item->user->tendik->pangkat->title}}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-outline-success"><i class="fe-check"></i>
-                                        {{$item->status}}</button>
+                                    @if ($item->status === 'sukses')
+                                    <button class="btn btn-sm btn-outline-blue"><i class="fe-check"></i> SUKSES</button>
+                                    @elseif ($item->status === 'menunggu')
+                                    <button class="btn btn-sm btn-outline-success"><i class="fe-clock"></i>
+                                        MENUNGGU</button>
+                                    @elseif ($item->status === 'revisi')
+                                    <button class="btn btn-sm btn-outline-warning"><i class="fe-edit-2"></i>
+                                        REVISI</button>
+                                    @else
+                                    <button class="btn btn-sm btn-outline-danger"><i class="fe-x"></i>
+                                        GAGAL</button>
+                                    @endif
                                 </td>
                                 <td>{{$item->tugas_sekolah}}</td>
                                 <td> {{$item->user->tendik->nama}}

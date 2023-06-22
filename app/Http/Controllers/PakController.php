@@ -368,20 +368,33 @@ class PakController extends Controller
             $dokIjazahTerakhir = $pak->dok_ijazah_terakhir;
         }
 
+        if (Auth::user()->hasRole('admin')) {
+            $by_user_id = Auth::user()->id;
+        } else {
+            $by_user_id = $pak->by_user_id;
+        }
+
+        if (Auth::user()->hasRole('admin')) {
+            $status = $request->status;
+        } else {
+            $status = $pak->status;
+        }
 
 
         $pak->update([
-            'user_id' => Auth::user()->id,
+            'user_id' => $pak->user_id,
             'jenis_guru_id' => $request->jenis_guru_id,
             'tugas_kota' => $request->tugas_kota,
             'tugas_sekolah' => $request->tugas_sekolah,
             'tugas_mengajar' => $request->tugas_mengajar,
-            'status' => 'menunggu',
+            'status' => $status,
             'pak_priode' => $request->pak_priode,
             'dok_pak_terakhir' => $dokPakTerkhirName,
             'dok_pak_penyesuaian' => $dokPakPenyesuaian,
             'dok_pangkat_terakhir' => $dokPangkatTerakhir,
             'dok_ijazah_terakhir' => $dokIjazahTerakhir,
+            'note' => $request->note,
+            'by_user_id' => $by_user_id,
         ]);
 
         $count = Unsur::count();
