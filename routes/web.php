@@ -17,8 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home/{status}', [App\Http\Controllers\HomeController::class, 'getPakStatus'])->name('home.status');
 
     Route::resource('pangkat', PangkatController::class)->middleware('role:admin');
     Route::resource('jabatan', JabatanController::class)->middleware('role:admin');
