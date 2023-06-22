@@ -105,11 +105,28 @@
                                 </td>
                                 <td>{{$item->tugas_sekolah}}</td>
                                 <td> {{$item->user->tendik->nama}} <br>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a href="{{ asset('storage/file/'.$item->dok_pak_terakhir) }}"
+                                            class="btn btn-sm btn-outline-primary" target="_blank">
+                                            <i class="fe-file-text"></i>
+                                        </a>
+                                        <a href="{{ asset('storage/file/'.$item->dok_pak_penyesuaian) }}"
+                                            class="btn btn-sm btn-outline-warning" target="_blank">
+                                            <i class="fe-file-text"></i>
+                                        </a>
+                                        <a href="{{ asset('storage/file/'.$item->dok_pangkat_terakhir) }}"
+                                            class="btn btn-sm btn-outline-success" target="_blank">
+                                            <i class="fe-file-text"></i>
+                                        </a>
+                                        <a href="{{ asset('storage/file/'.$item->dok_ijazah_terakhir) }}"
+                                            class="btn btn-sm btn-outline-secondary" target="_blank">
+                                            <i class="fe-file-text"></i>
+                                        </a>
+                                    </div>
                                     @role(['admin', 'user'])
                                     <form action="{{ route('pak.destroy', $item->id) }}" method="POST">
                                         @method('DELETE') @csrf
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            </a>
                                             <a href="{{ route('pak.show', $item->id) }}"
                                                 class="btn btn-sm btn-outline-info">
                                                 <i class="fe-eye"></i>
@@ -127,7 +144,6 @@
                                         @endrole
                                         @role('penilai')
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            </a>
                                             <a href="{{ route('pak.show', $item->id) }}"
                                                 class="btn btn-sm btn-outline-info">
                                                 <i class="fe-eye"></i>

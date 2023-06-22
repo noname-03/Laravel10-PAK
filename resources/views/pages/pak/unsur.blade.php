@@ -131,7 +131,7 @@
                                     <td>{{ $item->unsur->title }}</td>
                                     <td>
                                         <a href="{{ asset('storage/file/'.$item->dokumen) }}" target="_blank">{{
-                                            $item->title }}<a />
+                                            $item->title }}</a>
                                     </td>
                                     <td>{{ $item->tahun }}</td>
 
