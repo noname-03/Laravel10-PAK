@@ -382,7 +382,7 @@
                                         <td>
                                             <input type="file" id="pak_terakhir" name="pak_terakhir"
                                                 class="form-control @error('pak_terakhir') is-invalid @enderror"
-                                                placeholder="Tugas Sekolah" required>
+                                                placeholder="Tugas Sekolah" accept="application/pdf" required>
                                             @error('pak_terakhir')
                                             <div class="invalid-feedback">
                                                 {{$message}}
@@ -396,7 +396,7 @@
                                         <td>
                                             <input type="file" id="pak_penyesuaian" name="pak_penyesuaian"
                                                 class="form-control @error('pak_penyesuaian') is-invalid @enderror"
-                                                placeholder="Tugas Sekolah" required>
+                                                placeholder="Tugas Sekolah" accept="application/pdf" required>
                                             @error('pak_penyesuaian')
                                             <div class="invalid-feedback">
                                                 {{$message}}
@@ -410,7 +410,7 @@
                                         <td>
                                             <input type="file" id="pangkat_terakhir" name="pangkat_terakhir"
                                                 class="form-control @error('pangkat_terakhir') is-invalid @enderror"
-                                                placeholder="Tugas Sekolah" required>
+                                                placeholder="Tugas Sekolah" accept="application/pdf" required>
                                             @error('pangkat_terakhir')
                                             <div class="invalid-feedback">
                                                 {{$message}}
@@ -424,7 +424,7 @@
                                         <td>
                                             <input type="file" id="ijazah_terakhir" name="ijazah_terakhir"
                                                 class="form-control @error('ijazah_terakhir') is-invalid @enderror"
-                                                placeholder="Tugas Sekolah" required>
+                                                placeholder="Tugas Sekolah" accept="application/pdf" required>
                                             @error('ijazah_terakhir')
                                             <div class="invalid-feedback">
                                                 {{$message}}

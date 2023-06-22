@@ -84,7 +84,8 @@
                             <div class="col-6 mb-3">
                                 <label class="col-md-4 col-form-label" for="dokumen">Dokumen</label>
                                 <div class="col-12">
-                                    <input type="file" class="form-control" id="dokumen" name="dokumen" required>
+                                    <input type="file" class="form-control" id="dokumen" name="dokumen"
+                                        accept="application/pdf" required>
                                 </div>
                             </div>
                             <div class="col-4 mb-3">
