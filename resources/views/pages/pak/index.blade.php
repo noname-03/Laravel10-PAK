@@ -110,6 +110,10 @@
                                         @method('DELETE') @csrf
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             </a>
+                                            <a href="{{ route('pak.show', $item->id) }}"
+                                                class="btn btn-sm btn-outline-info">
+                                                <i class="fe-eye"></i>
+                                            </a>
                                             <a href="{{ route('pak.biodata.edit', $item->id) }}"
                                                 class="btn btn-sm btn-outline-secondary">
                                                 <i class="fe-edit"></i>
@@ -122,13 +126,19 @@
                                         </div>
                                         @endrole
                                         @role('penilai')
-                                        <a href="{{ route('pak.biodata.edit', $item->id) }}"
-                                            class="btn btn-sm btn-outline-secondary">
-                                            <i class="fe-edit"></i>
-                                        </a>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            </a>
+                                            <a href="{{ route('pak.show', $item->id) }}"
+                                                class="btn btn-sm btn-outline-info">
+                                                <i class="fe-eye"></i>
+                                            </a>
+                                            <a href="{{ route('pak.biodata.edit', $item->id) }}"
+                                                class="btn btn-sm btn-outline-secondary">
+                                                <i class="fe-edit"></i>
+                                            </a>
+                                        </div>
                                         @endrole
                                     </form>
-
                                 </td>
                             </tr>
                             @endforeach
