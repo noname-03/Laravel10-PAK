@@ -47,6 +47,7 @@
                                 <input type="text" id="pak_no" name="pak_no"
                                     class="form-control @error('pak_no') is-invalid @enderror"
                                     placeholder="Masukan Judul Unsur" required>
+                                <p class="text-danger">Isi dengan nomer pada PAK terakhir.</p>
                                 @error('pak_no')
                                 <div class="invalid-feedback">
                                     {{$message}}
@@ -58,6 +59,7 @@
                                 <input type="number" id="pak_priode" name="pak_priode"
                                     class="form-control @error('pak_priode') is-invalid @enderror"
                                     placeholder="Masukan Tahun Pak Priode" required>
+                                <p class="text-danger">Isi dengan tahun PAK terakhir.</p>
                                 @error('pak_priode')
                                 <div class="invalid-feedback">
                                     {{$message}}
@@ -70,6 +72,7 @@
                                 <input type="date" id="pak_awal" name="pak_awal"
                                     class="form-control @error('pak_awal') is-invalid @enderror"
                                     placeholder="Masukan pak_awal">
+                                <p class="text-danger">Isi dengan tanggal masa awal pada PAK terakhir.</p>
                                 @error('pak_awal')
                                 <div class="invalid-feedback">
                                     {{$message}}
@@ -82,6 +85,7 @@
                                 <input type="date" id="pak_akhir" name="pak_akhir"
                                     class="form-control @error('pak_akhir') is-invalid @enderror"
                                     placeholder="Masukan pak_akhir Unsur">
+                                <p class="text-danger">Isi dengan tanggal masa akhir pada PAK terakhir.</p>
                                 @error('pak_akhir')
                                 <div class="invalid-feedback">
                                     {{$message}}
@@ -232,6 +236,7 @@
                                                         <option value="{{$item->id}}">{{$item->title}}</option>
                                                         @endforeach
                                                     </select>
+                                                    <p class="text-danger">Isi dengan SK kepangkatan terakhir.</p>
                                                 </div>
                                                 &nbsp;
                                                 <div class="col-lg-2">
@@ -270,6 +275,8 @@
                                                     </div>
                                                     @enderror
                                                 </div>
+                                                <p class="text-danger">Isi dengan SK jabatan fungsional terakhir.</p>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -311,6 +318,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <p class="text-danger">Isi dengan SK kepangkatan terakhir.</p>
                                         </td>
                                     </tr>
                                     <tr>
