@@ -26,6 +26,17 @@ class UsersTableSeeder extends Seeder
         Role::create(['name' => 'admin']);
         $admin->assignRole('admin');
 
+        $penilai = User::create([
+            'name' => 'Penilai',
+            'email' => 'penilai@mail.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            // password
+            'remember_token' => Str::random(10),
+        ]);
+        Role::create(['name' => 'penilai']);
+        $penilai->assignRole('penilai');
+
 
         $user = User::create([
             'name' => 'User',

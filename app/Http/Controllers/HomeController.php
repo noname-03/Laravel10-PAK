@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->hasRole('admin')) {
+        if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('penilai')) {
             $revision = Pak::where('status', 'revisi')->count();
             $waiting = Pak::where('status', 'menunggu')->count();
             $success = Pak::where('status', 'sukses')->count();

@@ -153,6 +153,29 @@
                                         name="note">{{$pak->note}}</textarea>
                                 </div>
                                 @endrole
+                                @role('penilai')
+                                <div class="mb-3">
+                                    <label class="col-md-4 col-form-label" for="userName">Status</label>
+                                    <div class="col-12">
+                                        <select class="form-control select2" data-toggle="select2" data-width="100%"
+                                            name="status">
+                                            <option value="sukses" {{$pak->status === 'suskses' ? 'selected' : ''}}
+                                                >Sukses</option>
+                                            <option value="menunggu" {{$pak->status === 'menunggu' ? 'selected' :
+                                                ''}}>Menunggu</option>
+                                            <option value="revisi" {{$pak->status === 'revisi' ? 'selected' :
+                                                ''}}>Revisi</option>
+                                            <option value="gagal" {{$pak->status === 'gagal' ? 'selected' : ''}}>Gagal
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="note" class="form-label">Keterangan</label>
+                                    <textarea class="form-control" id="note" rows="3"
+                                        name="note">{{$pak->note}}</textarea>
+                                </div>
+                                @endrole
 
                                 <!-- Step 1 form fields -->
                             </div>

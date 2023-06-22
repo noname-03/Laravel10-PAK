@@ -100,7 +100,7 @@ class PakController extends Controller
     }
     public function index()
     {
-        if (Auth::user()->hasRole('admin')) {
+        if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('penilai')) {
             $dataPak = Pak::with('user.tendik') // Menggunakan eager loading untuk memuat data terkait
                 ->get();
             $count = 0;
@@ -368,13 +368,13 @@ class PakController extends Controller
             $dokIjazahTerakhir = $pak->dok_ijazah_terakhir;
         }
 
-        if (Auth::user()->hasRole('admin')) {
+        if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('penilai')) {
             $by_user_id = Auth::user()->id;
         } else {
             $by_user_id = $pak->by_user_id;
         }
 
-        if (Auth::user()->hasRole('admin')) {
+        if (Auth::user()->hasRole('admin') || Auth::user()->hasRole('penilai')) {
             $status = $request->status;
         } else {
             $status = $pak->status;
