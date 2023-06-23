@@ -3,19 +3,21 @@
         <div class="topbar-menu d-flex align-items-center gap-1">
 
             <!-- Topbar Brand Logo -->
-            <div class="logo-box">
+            {{-- <div class="logo-box">
                 <!-- Brand Logo Light -->
                 <a href="index.html" class="logo-light">
                     <img src="{{ asset('/') }}assets/images/logo-light.png" alt="logo" class="logo-lg">
+                    <img src="{{ asset('/') }}assets/images/PUTIH-SILAPAK.png" alt="PAK" width="100">
                     <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm">
                 </a>
 
                 <!-- Brand Logo Dark -->
                 <a href="index.html" class="logo-dark">
                     <img src="{{ asset('/') }}assets/images/logo-dark.png" alt="dark logo" class="logo-lg">
+                    <img src="{{ asset('/') }}assets/images/HITAM-SILAPAK.png" alt="PAK" width="100">
                     <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm">
                 </a>
-            </div>
+            </div> --}}
 
             <!-- Sidebar Menu Toggle Button -->
             <button class="button-toggle-menu">
@@ -31,14 +33,6 @@
                 <a class="nav-link waves-effect waves-light" href="" data-toggle="fullscreen">
                     <i class="fe-maximize font-22"></i>
                 </a>
-            </li>
-
-
-            <!-- Light/Dark Mode Toggle Button -->
-            <li class="d-none d-sm-inline-block">
-                <div class="nav-link waves-effect waves-light" id="light-dark-mode">
-                    <i class="ri-moon-line font-22"></i>
-                </div>
             </li>
 
             <!-- User Dropdown -->

@@ -224,10 +224,10 @@
                             </div> <!-- end col -->
 
                             <div class="col-md-6 mb-3">
-                                <label for="lahir_tempat" class="form-label">Lahir Tempat</label>
+                                <label for="lahir_tempat" class="form-label">Tempat Lahir</label>
                                 <input type="text" id="lahir_tempat" name="lahir_tempat"
                                     class="form-control @error('lahir_tempat') is-invalid @enderror"
-                                    placeholder="Masukan Tugas Kota" required>
+                                    placeholder="Masukan Tempat Lahir" required>
                                 @error('lahir_tempat')
                                 <div class="invalid-feedback">
                                     {{$message}}
@@ -236,10 +236,10 @@
                             </div> <!-- end col -->
 
                             <div class="col-md-6 mb-3">
-                                <label for="lahir_tanggal" class="form-label">Lahir Tangal</label>
+                                <label for="lahir_tanggal" class="form-label">Tangal Lahir</label>
                                 <input type="date" id="lahir_tanggal" name="lahir_tanggal"
                                     class="form-control @error('lahir_tanggal') is-invalid @enderror"
-                                    placeholder="Masukan Tugas Kota" required>
+                                    placeholder="Masukan Tanggal Lahir" required>
                                 @error('lahir_tanggal')
                                 <div class="invalid-feedback">
                                     {{$message}}
@@ -248,10 +248,10 @@
                             </div> <!-- end col -->
 
                             <div class="col-md-6 mb-3">
-                                <label for="jabatan_tanggal" class="form-label">Jabatan Tanggal</label>
+                                <label for="jabatan_tanggal" class="form-label">Tanggal Jabatan</label>
                                 <input type="date" id="jabatan_tanggal" name="jabatan_tanggal"
                                     class="form-control @error('jabatan_tanggal') is-invalid @enderror"
-                                    placeholder="Masukan Tugas Kota" required>
+                                    placeholder="Masukan Tanggal Jabatan" required>
                                 @error('jabatan_tanggal')
                                 <div class="invalid-feedback">
                                     {{$message}}

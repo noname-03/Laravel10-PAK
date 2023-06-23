@@ -143,6 +143,7 @@
                                         </div>
                                         @endrole
                                         @role('penilai')
+                                        <br>
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <a href="{{ route('pak.show', $item->id) }}"
                                                 class="btn btn-sm btn-outline-info">

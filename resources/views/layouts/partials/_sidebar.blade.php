@@ -4,16 +4,16 @@
     <div class="logo-box">
         <!-- Brand Logo Light -->
         <a href="{{route('home')}}" class="logo-light">
-            {{-- <img src="{{ asset('/') }}assets/images/logo-light.png" alt="logo" class="logo-lg">
-            <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm"> --}}
-            <h2>PAK</h2>
+            <img src="{{ asset('/') }}assets/images/BIRU-SILAPAK.png" alt="PAK" width="100">
+            {{-- <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm"> --}}
+            {{-- <h2>PAK</h2> --}}
         </a>
 
         <!-- Brand Logo Dark -->
         <a href="{{route('home')}}" class="logo-dark">
-            <h2>PAK</h2>
-            {{-- <img src="{{ asset('/') }}assets/images/logo-dark.png" alt="dark logo" class="logo-lg">
-            <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm"> --}}
+            {{-- <h2 class="logo-sm" style="color: #0088D5">PAK</h2> --}}
+            <img src="{{ asset('/') }}assets/images/BIRU-SILAPAK.png" alt="PAK" width="100" class="logo-xl">
+            {{-- <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm"> --}}
         </a>
     </div>
 
