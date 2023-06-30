@@ -76,7 +76,7 @@
                                     <div class="input-group input-group-merge">
                                         <input type="password" id="password"
                                             class="form-control @error('password') is-invalid @enderror"
-                                            placeholder="Enter your password" name="password">
+                                            placeholder="Enter your password" name="password" required>
                                         <div class="input-group-text" data-password="false">
                                             <span class="password-eye"></span>
                                         </div>
@@ -120,6 +120,12 @@
         2023
     </footer>
 
+
+    <!-- Vendor js -->
+    <script src="/assets/js/vendor.min.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/app.min.js"></script>s
     <!-- Authentication js -->
     <script src="/assets/js/pages/authentication.init.js"></script>
 
