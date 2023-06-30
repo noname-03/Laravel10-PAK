@@ -39,7 +39,7 @@
                                     <a href="/" class="logo logo-dark text-center">
                                         <span class="logo-lg">
                                             {{-- <img src="assets/images/logo-dark.png" alt="" height="22"> --}}
-                                            <img src="{{ asset('/') }}assets/images/BIRU-SILAPAK.png" alt="PAK"
+                                            <img src="{{ asset('/') }}assets/images/HIJAU-SILAPAK.png" alt="PAK"
                                                 width="100">
                                             {{-- <h2>PAK</h2> --}}
                                         </span>
@@ -49,7 +49,7 @@
                                         <span class="logo-lg">
                                             {{-- <img src="assets/images/logo-light.png" alt="" height="22"> --}}
                                             {{-- <h2>PAK</h2> --}}
-                                            <img src="{{ asset('/') }}assets/images/PUTIH-SILAPAK.png" alt="PAK"
+                                            <img src="{{ asset('/') }}assets/images/HIJAU-SILAPAK.png" alt="PAK"
                                                 width="100">
                                         </span>
                                     </a>
