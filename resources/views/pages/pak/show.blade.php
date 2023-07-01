@@ -47,7 +47,11 @@
                                 {{$dataPak->user->tendik->lahir_tanggal}}<br>
                             </address>
                         </div> <!-- end col -->
-
+                        @php
+                        $nilaiLama = 0; // Deklarasi variabel $nilaiLama
+                        $nilaiBaru = 0; // Deklarasi variabel $nilaiBaru
+                        $total = 0; // Deklarasi variabel $total
+                        @endphp
                         <div class="col-6">
                             <h6>Data Pak</h6>
                             <address>
@@ -55,7 +59,15 @@
                                 Tugas Sekolah : {{$dataPak->tugas_sekolah}}<br>
                                 Tugas Mengajar : {{$dataPak->tugas_mengajar}}<br>
                                 Status : {{$dataPak->status}}<br>
-                                Oleh : {{$dataPak->byUser->name}}<br>
+                                Oleh :
+                                {{-- {{$dataPak->by_user_id != null ? $dataPak->byUser->name : 'Pak Belum
+                                DiVerivikasi' }} --}}
+                                @if ($dataPak->by_user_id != null)
+                                {{$dataPak->byUser->name}}
+                                @else
+                                <p class="text-danger">Pak Belum Di Verfikasi</p>
+                                @endif
+                                <br>
                             </address>
                         </div> <!-- end col -->
                     </div>
@@ -74,11 +86,11 @@
                                         <td>Baru</td>
                                         <td>Total</td>
                                     </tr>
-                                    @php
+                                    {{-- @php
                                     $nilaiLama = 0; // Deklarasi variabel $nilaiLama
                                     $nilaiBaru = 0; // Deklarasi variabel $nilaiBaru
                                     $total = 0; // Deklarasi variabel $total
-                                    @endphp
+                                    @endphp --}}
 
                                     @foreach ($unsur as $key =>$item)
                                     <div>{{-- merge 3 column --}}

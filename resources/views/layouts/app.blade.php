@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>OPAK || @yield('title')</title>
+    <title>SILAPAK || @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('/') }}assets/images/HIJAU-SILAPAK.png">
+    <link rel="shortcut icon" href="{{ asset('/') }}assets/images/PUTIH-SILAPAK.png">
 
     <!-- Theme Config Js -->
     <script src="{{ asset('/') }}assets/js/head.js"></script>
