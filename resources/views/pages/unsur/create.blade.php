@@ -42,8 +42,8 @@
                                 <label for="title" class="form-label">Parent Dari : </label>
                                 <select class="form-control" id="select2" data-toggle="select2" data-width="100%"
                                     name="parent_id">
-                                    @foreach ($unsur as $item)
                                     <option value="">Tidak Punya Parent</option>
+                                    @foreach ($unsur as $item)
                                     <option value="{{$item->id}}">
                                         @if ($item->parent_id == null)
                                         {{$item->title}}

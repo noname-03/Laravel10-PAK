@@ -116,15 +116,15 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="col-md-6 col-form-label" for="pangkat_id">Pangkat /
-                                        Golongan Ruang. TMT</label>
+                                        Golongan</label>
                                     <div class="col-12">
                                         <input type="text" class="form-control" id="pangkat_id" name="pangkat_id"
                                             value="{{$pak->user->tendik->pangkat->title}}" readonly>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="col-md-6 col-form-label" for="jabatan_id">Jabatan,
-                                        TMT</label>
+                                    <label class="col-md-6 col-form-label" for="jabatan_id">Jabatan
+                                    </label>
                                     <div class="col-12">
                                         <input type="text" class="form-control" id="jabatan_id" name="jabatan_id"
                                             value="{{$pak->user->tendik->jabatan->title}}" readonly>
@@ -232,6 +232,11 @@
                                         <input type="file" id="pak_terakhir" name="pak_terakhir"
                                             class="form-control @error('pak_terakhir') is-invalid @enderror"
                                             placeholder="Tugas Sekolah">
+                                        <a href="{{ asset('storage/file/'.$pak->dok_pak_terakhir) }}" target="_blank">
+                                            <p class="text-primary">
+                                                {{$pak->dok_pak_terakhir}}
+                                            </p>
+                                        </a>
                                         @error('pak_terakhir')
                                         <div class="invalid-feedback">
                                             {{$message}}
@@ -246,6 +251,12 @@
                                         <input type="file" id="pangkat_terakhir" name="pangkat_terakhir"
                                             class="form-control @error('pangkat_terakhir') is-invalid @enderror"
                                             placeholder="Tugas Sekolah">
+                                        <a href="{{ asset('storage/file/'.$pak->dok_pangkat_terakhir) }}"
+                                            target="_blank">
+                                            <p class="text-primary">
+                                                {{$pak->dok_pangkat_terakhir}}
+                                            </p>
+                                        </a>
                                         @error('pangkat_terakhir')
                                         <div class="invalid-feedback">
                                             {{$message}}
@@ -260,6 +271,12 @@
                                         <input type="file" id="pak_penyesuaian" name="pak_penyesuaian"
                                             class="form-control @error('pak_penyesuaian') is-invalid @enderror"
                                             placeholder="Tugas Sekolah">
+                                        <a href="{{ asset('storage/file/'.$pak->dok_pak_penyesuaian) }}"
+                                            target="_blank">
+                                            <p class="text-primary">
+                                                {{$pak->dok_pak_penyesuaian}}
+                                            </p>
+                                        </a>
                                         @error('pak_penyesuaian')
                                         <div class="invalid-feedback">
                                             {{$message}}
@@ -274,6 +291,12 @@
                                         <input type="file" id="ijazah_terakhir" name="ijazah_terakhir"
                                             class="form-control @error('ijazah_terakhir') is-invalid @enderror"
                                             placeholder="Tugas Sekolah">
+                                        <a href="{{ asset('storage/file/'.$pak->dok_ijazah_terakhir) }}"
+                                            target="_blank">
+                                            <p class="text-primary">
+                                                {{$pak->dok_ijazah_terakhir}}
+                                            </p>
+                                        </a>
                                         @error('ijazah_terakhir')
                                         <div class="invalid-feedback">
                                             {{$message}}

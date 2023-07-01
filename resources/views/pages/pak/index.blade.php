@@ -76,10 +76,11 @@
                                 <th style="width: 2%">No</th>
                                 <th style="width: 3%">Tanggal Pengajuan</th>
                                 <th style="width: 2%">Priode</th>
-                                <th style="width: 5%">Usulan</th>
+                                <th style="width: 5%">Pangkat/Golongan/Jabatan</th>
                                 <th style="width: 10%">Status</th>
                                 <th style="width: 33%">Satuan Pendidikan</th>
-                                <th style="width: 43%">Nama</th>
+                                <th style="width: 3%">Nama</th>
+                                <th style="width: 40%">Action</th>
                             </tr>
                         </thead>
 
@@ -88,7 +89,9 @@
                                 <td style="text-align: center">{{$loop->iteration}}</td>
                                 <td style="text-align: center">{{$item->created_at}}</td>
                                 <td style="text-align: center">{{$item->pak_priode}}</td>
-                                <td style="text-align: center">{{$item->user->tendik->pangkat->title}}</td>
+                                <td style="text-align: center">
+                                    {{$item->user->tendik->pangkat->title}} / {{ $item->user->tendik->jabatan->title}}
+                                </td>
                                 <td>
                                     @if ($item->status === 'sukses')
                                     <button class="btn btn-sm btn-outline-blue"><i class="fe-check"></i> SUKSES</button>
@@ -104,7 +107,8 @@
                                     @endif
                                 </td>
                                 <td>{{$item->tugas_sekolah}}</td>
-                                <td> {{$item->user->tendik->nama}} <br>
+                                <td style="text-align: center">{{$item->user->tendik->nama}}</td>
+                                <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="{{ asset('storage/file/'.$item->dok_pak_terakhir) }}"
                                             class="btn btn-sm btn-outline-primary" target="_blank">
@@ -123,7 +127,7 @@
                                             <i class="fe-file-text"></i>
                                         </a>
                                     </div>
-                                    @role(['admin', 'user'])
+                                    @role(['admin'])
                                     <form action="{{ route('pak.destroy', $item->id) }}" method="POST">
                                         @method('DELETE') @csrf
                                         <div class="btn-group" role="group" aria-label="Basic example">
@@ -141,9 +145,20 @@
                                                 <i class="fe-trash"></i>
                                             </button>
                                         </div>
-                                        @endrole
-                                        @role('penilai')
-                                        <br>
+                                    </form>
+                                    @endrole
+                                    @role(['user'])
+                                    @if ($item->status === 'sukses')
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a href="{{ route('pak.show', $item->id) }}"
+                                            class="btn btn-sm btn-outline-info">
+                                            <i class="fe-eye"></i>
+                                        </a>
+                                    </div>
+                                    </form>
+                                    @else
+                                    <form action="{{ route('pak.destroy', $item->id) }}" method="POST">
+                                        @method('DELETE') @csrf
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <a href="{{ route('pak.show', $item->id) }}"
                                                 class="btn btn-sm btn-outline-info">
@@ -153,9 +168,28 @@
                                                 class="btn btn-sm btn-outline-secondary">
                                                 <i class="fe-edit"></i>
                                             </a>
+                                            <button type="submit"
+                                                onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data Ini?')"
+                                                class="btn btn-sm btn-outline-danger">
+                                                <i class="fe-trash"></i>
+                                            </button>
                                         </div>
-                                        @endrole
                                     </form>
+                                    @endif
+                                    @endrole
+                                    @role('penilai')
+                                    <br>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a href="{{ route('pak.show', $item->id) }}"
+                                            class="btn btn-sm btn-outline-info">
+                                            <i class="fe-eye"></i>
+                                        </a>
+                                        <a href="{{ route('pak.biodata.edit', $item->id) }}"
+                                            class="btn btn-sm btn-outline-secondary">
+                                            <i class="fe-edit"></i>
+                                        </a>
+                                    </div>
+                                    @endrole
                                 </td>
                             </tr>
                             @endforeach

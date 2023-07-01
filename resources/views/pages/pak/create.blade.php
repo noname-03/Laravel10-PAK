@@ -105,15 +105,14 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label class="col-md-6 col-form-label" for="userName">Pernagkat /
-                                                    Golongan Ruang. TMT</label>
+                                                    Golongan</label>
                                                 <div class="col-12">
                                                     <input type="text" class="form-control" id="userName"
                                                         name="userName" value="Coderthemes">
                                                 </div>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="col-md-6 col-form-label" for="userName">Jabatan,
-                                                    TMT</label>
+                                                <label class="col-md-6 col-form-label" for="userName">Jabatan</label>
                                                 <div class="col-12">
                                                     <input type="text" class="form-control" id="userName"
                                                         name="userName" value="Coderthemes">
