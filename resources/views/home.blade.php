@@ -21,6 +21,25 @@ Home
     <!-- end page title -->
 
     <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <img class="d-block img-fluid" src="{{ asset('/') }}assets/images/home.png"
+                                    alt="First slide">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end row -->
+
+    <div class="row">
         <div class="col-md-6 col-xl-3">
             <a href="{{route('home.status', 'sukses')}}">
                 <div class="card">
