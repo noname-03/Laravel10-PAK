@@ -9,7 +9,7 @@
     <meta content="Coderthemes" name="author" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('/') }}assets/images/HIJAU-SILAPAK1.png">
 
     <!-- Theme Config Js -->
     <script src="/assets/js/head.js"></script>
@@ -40,7 +40,7 @@
                                     <a href="/" class="logo logo-dark text-center">
                                         <span class="logo-lg">
                                             {{-- <img src="assets/images/logo-dark.png" alt="" height="22"> --}}
-                                            <img src="{{ asset('/') }}assets/images/HIJAU-SILAPAK.png" alt="PAK"
+                                            <img src="{{ asset('/') }}assets/images/HIJAU-SILAPAK1.png" alt="PAK"
                                                 width="100">
                                             {{-- <h2>PAK</h2> --}}
                                         </span>
@@ -50,7 +50,7 @@
                                         <span class="logo-lg">
                                             {{-- <img src="assets/images/logo-light.png" alt="" height="22"> --}}
                                             {{-- <h2>PAK</h2> --}}
-                                            <img src="{{ asset('/') }}assets/images/HIJAU-SILAPAK.png" alt="PAK"
+                                            <img src="{{ asset('/') }}assets/images/HIJAU-SILAPAK1.png" alt="PAK"
                                                 width="100">
                                         </span>
                                     </a>
