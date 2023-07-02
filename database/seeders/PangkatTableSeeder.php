@@ -14,16 +14,31 @@ class PangkatTableSeeder extends Seeder
     public function run(): void
     {
         Pangkat::create([
-            'title' => 'Pangkat 1',
+            'title' => 'III A - PENATA MUDA',
         ]);
         Pangkat::create([
-            'title' => 'Pangkat 2',
+            'title' => 'III B - PENATA MUDA TINGKAT ',
         ]);
         Pangkat::create([
-            'title' => 'Pangkat 3',
+            'title' => 'III C - PENATA',
         ]);
         Pangkat::create([
-            'title' => 'Pangkat 4',
+            'title' => 'III D - PENATA TINGKAT 1',
+        ]);
+        Pangkat::create([
+            'title' => 'IV A - PEMBINA',
+        ]);
+        Pangkat::create([
+            'title' => 'IV B - PEMBINA TINGKAT 1',
+        ]);
+        Pangkat::create([
+            'title' => 'IV C - PEMBINA UTAMA MUDA',
+        ]);
+        Pangkat::create([
+            'title' => 'IV D - PEMBINA UTAMA MADYA',
+        ]);
+        Pangkat::create([
+            'title' => 'IV E - PEMBINA UTAMA ',
         ]);
     }
 }

@@ -14,16 +14,16 @@ class JabatanTableSeeder extends Seeder
     public function run(): void
     {
         Jabatan::create([
-            'title' => 'Jabatan 1',
+            'title' => 'GURU PERTAMA',
         ]);
         Jabatan::create([
-            'title' => 'Jabatan 2',
+            'title' => 'GURU MUDA',
         ]);
         Jabatan::create([
-            'title' => 'Jabatan 3',
+            'title' => 'GURU MADYA',
         ]);
         Jabatan::create([
-            'title' => 'Jabatan 4',
+            'title' => 'GURU UTAMA',
         ]);
     }
 }
