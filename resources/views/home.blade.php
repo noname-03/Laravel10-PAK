@@ -27,7 +27,9 @@ Home
                     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner" role="listbox">
                             <div class="carousel-item active">
-                                <img class="d-block img-fluid" src="{{ asset('/') }}assets/images/home.png"
+                                <img class="d-block img-fluid" src="{{ asset('/') }}assets/images/DASAR-HUKUM.jpg"
+                                    alt="First slide">
+                                <img class="d-block img-fluid" src="{{ asset('/') }}assets/images/CONTENT-SILAPAK.jpg"
                                     alt="First slide">
                             </div>
                         </div>
