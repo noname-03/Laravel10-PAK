@@ -74,13 +74,13 @@
                         <thead>
                             <tr style="width: 100%">
                                 <th style="width: 2%">No</th>
-                                <th style="width: 3%">Tanggal Pengajuan</th>
-                                <th style="width: 2%">Priode</th>
-                                <th style="width: 5%">Pangkat/Golongan/Jabatan</th>
+                                <th style="width: 10%">Tanggal Pengajuan</th>
+                                <th style="width: 3%">Priode</th>
+                                <th style="width: 20%">Pangkat/Golongan/Jabatan</th>
                                 <th style="width: 10%">Status</th>
-                                <th style="width: 33%">Satuan Pendidikan</th>
+                                <th style="width: 10%">Satuan Pendidikan</th>
                                 <th style="width: 3%">Nama</th>
-                                <th style="width: 40%">Action</th>
+                                <th style="width: 42%">Action</th>
                             </tr>
                         </thead>
 
