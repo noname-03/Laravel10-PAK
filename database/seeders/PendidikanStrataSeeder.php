@@ -14,6 +14,9 @@ class PendidikanStrataSeeder extends Seeder
     public function run(): void
     {
         PendidikanStrata::create([
+            'title' => 'SMA/Sederajat',
+        ]);
+        PendidikanStrata::create([
             'title' => 'Diploma',
         ]);
         PendidikanStrata::create([
