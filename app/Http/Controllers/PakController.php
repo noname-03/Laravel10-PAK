@@ -56,9 +56,7 @@ class PakController extends Controller
         $request->pak_terakhir->storeAs('public/file/', $dokPakTerkhirName);
         $pak->dok_pak_terakhir = $dokPakTerkhirName;
 
-        $dokPakPenyesuaian = time() . '.' . 'pak_penyesuaian' . '.' . $request->pak_penyesuaian->extension();
-        $request->pak_penyesuaian->storeAs('public/file/', $dokPakPenyesuaian);
-        $pak->dok_pak_penyesuaian = $dokPakPenyesuaian;
+        $pak->dok_pak_penyesuaian = 'tidak ada';
 
         $dokPangkatTerakhir = time() . '.' . 'pangkat_terakhir' . '.' . $request->pangkat_terakhir->extension();
         $request->pangkat_terakhir->storeAs('public/file/', $dokPangkatTerakhir);
@@ -136,9 +134,7 @@ class PakController extends Controller
         $request->pak_terakhir->storeAs('public/file/', $dokPakTerkhirName);
         $pak->dok_pak_terakhir = $dokPakTerkhirName;
 
-        $dokPakPenyesuaian = time() . '.' . Auth::user()->name . '.' . 'pak_penyesuaian' . '.' . $request->pak_penyesuaian->extension();
-        $request->pak_penyesuaian->storeAs('public/file/', $dokPakPenyesuaian);
-        $pak->dok_pak_penyesuaian = $dokPakPenyesuaian;
+        $pak->dok_pak_penyesuaian = 'tidak ada';
 
         $dokPangkatTerakhir = time() . '.' . Auth::user()->name . '.' . 'pangkat_terakhir' . '.' . $request->pangkat_terakhir->extension();
         $request->pangkat_terakhir->storeAs('public/file/', $dokPangkatTerakhir);
@@ -346,14 +342,6 @@ class PakController extends Controller
             $dokPakTerkhirName = $pak->dok_pak_terakhir;
         }
 
-        if ($request->hasFile('pak_penyesuaian')) {
-            $dokPakPenyesuaian = time() . '.' . Auth::user()->name . '.' . 'pak_penyesuaian' . '.' . $request->pak_penyesuaian->extension();
-            $request->pak_penyesuaian->storeAs('public/file/', $dokPakPenyesuaian);
-            Storage::delete('public/file/' . $pak->dok_pak_penyesuaian);
-        } else {
-            $dokPakPenyesuaian = $pak->dok_pak_penyesuaian;
-        }
-
         if ($request->hasFile('pangkat_terakhir')) {
             $dokPangkatTerakhir = time() . '.' . Auth::user()->name . '.' . 'pangkat_terakhir' . '.' . $request->pangkat_terakhir->extension();
             $request->pangkat_terakhir->storeAs('public/file/', $dokPangkatTerakhir);
@@ -392,7 +380,7 @@ class PakController extends Controller
             'status' => $status,
             'pak_priode' => $request->pak_priode,
             'dok_pak_terakhir' => $dokPakTerkhirName,
-            'dok_pak_penyesuaian' => $dokPakPenyesuaian,
+            'dok_pak_penyesuaian' => 'tidak ada',
             'dok_pangkat_terakhir' => $dokPangkatTerakhir,
             'dok_ijazah_terakhir' => $dokIjazahTerakhir,
             'note' => $request->note,
@@ -419,7 +407,7 @@ class PakController extends Controller
     {
         $pak = Pak::findOrFail($id);
         Storage::delete('public/file/' . $pak->dok_pak_terakhir);
-        Storage::delete('public/file/' . $pak->dok_pak_penyesuaian);
+        // Storage::delete('public/file/' . $pak->dok_pak_penyesuaian);
         Storage::delete('public/file/' . $pak->dok_pangkat_terakhir);
         Storage::delete('public/file/' . $pak->dok_ijazah_terakhir);
         $pak->delete();

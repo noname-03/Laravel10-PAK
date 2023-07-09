@@ -46,7 +46,7 @@
                                 <label for="pak_no" class="form-label">Pak Terakhir</label>
                                 <input type="text" id="pak_no" name="pak_no"
                                     class="form-control @error('pak_no') is-invalid @enderror"
-                                    placeholder="Masukan Judul Unsur" required>
+                                    placeholder="Masukan No PAK Terakhir" required>
                                 <p class="text-danger">Isi dengan nomer pada PAK terakhir.</p>
                                 @error('pak_no')
                                 <div class="invalid-feedback">
@@ -281,48 +281,6 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">8</th>
-                                        <td>Masa Kerja Golongan</td>
-                                        <td>
-                                            <div class="d-flex flex-wrap">
-                                                <div class="row align-items-center">
-                                                    <div class="col-2">
-                                                        <label>Tahun</label>
-                                                    </div>
-                                                    &nbsp;
-                                                    <div class="col-6">
-                                                        <input type="number" id="masa_tahun" name="masa_tahun"
-                                                            class="form-control @error('masa_tahun') is-invalid @enderror"
-                                                            placeholder="Tahun" required>
-                                                        @error('masa_tahun')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                &nbsp;
-                                                <div class="row align-items-center">
-                                                    <div class="col-2">
-                                                        <label>Bulan</label>
-                                                    </div>
-                                                    &nbsp;
-                                                    <div class="col-6">
-                                                        <input type="number" id="masa_bulan" name="masa_bulan"
-                                                            class="form-control @error('masa_bulan') is-invalid @enderror"
-                                                            placeholder="Bulan" required>
-                                                        @error('masa_bulan')
-                                                        <div class="invalid-feedback">
-                                                            {{$message}}
-                                                        </div>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p class="text-danger">Isi dengan SK kepangkatan terakhir.</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">9</th>
                                         <td>Jenis Guru</td>
                                         <td>
                                             <select class="form-control select2" data-toggle="select2" data-width="100%"
@@ -335,7 +293,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">10</th>
+                                        <th scope="row">9</th>
                                         <td>Tugas</td>
                                         <td>
                                             <div class="col-12">
@@ -351,7 +309,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">11</th>
+                                        <th scope="row">10</th>
                                         <td>Sekolah</td>
                                         <td>
                                             <div class="mb-2">
@@ -377,7 +335,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">12</th>
+                                        <th scope="row">11</th>
                                         <td>Dokumen Pak Terakhir</td>
                                         <td>
                                             <input type="file" id="pak_terakhir" name="pak_terakhir"
@@ -392,20 +350,6 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">12</th>
-                                        <td>Dokumen Pak Penyesuaian</td>
-                                        <td>
-                                            <input type="file" id="pak_penyesuaian" name="pak_penyesuaian"
-                                                class="form-control @error('pak_penyesuaian') is-invalid @enderror"
-                                                placeholder="Tugas Sekolah" accept="application/pdf" required>
-                                            @error('pak_penyesuaian')
-                                            <div class="invalid-feedback">
-                                                {{$message}}
-                                            </div>
-                                            @enderror
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">13</th>
                                         <td>Dokumen Pangkat Terakhir</td>
                                         <td>
                                             <input type="file" id="pangkat_terakhir" name="pangkat_terakhir"
@@ -419,7 +363,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">14</th>
+                                        <th scope="row">13</th>
                                         <td>Dokumen Ijazah Terakhir</td>
                                         <td>
                                             <input type="file" id="ijazah_terakhir" name="ijazah_terakhir"

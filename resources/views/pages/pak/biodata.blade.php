@@ -222,7 +222,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label class="col-md-4 col-form-label" for="userName">Upload Scan Pak
                                         Penyesuaian</label>
                                     <div class="col-12">
@@ -235,7 +235,7 @@
                                         </div>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="mb-3">
                                     <label class="col-md-4 col-form-label" for="userName">Upload Scan
                                         Ijazah</label>

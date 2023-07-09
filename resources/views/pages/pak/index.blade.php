@@ -114,10 +114,10 @@
                                             class="btn btn-sm btn-outline-primary" target="_blank">
                                             <i class="fe-file-text"></i>
                                         </a>
-                                        <a href="{{ asset('storage/file/'.$item->dok_pak_penyesuaian) }}"
+                                        {{-- <a href="{{ asset('storage/file/'.$item->dok_pak_penyesuaian) }}"
                                             class="btn btn-sm btn-outline-warning" target="_blank">
                                             <i class="fe-file-text"></i>
-                                        </a>
+                                        </a> --}}
                                         <a href="{{ asset('storage/file/'.$item->dok_pangkat_terakhir) }}"
                                             class="btn btn-sm btn-outline-success" target="_blank">
                                             <i class="fe-file-text"></i>

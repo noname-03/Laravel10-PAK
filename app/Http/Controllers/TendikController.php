@@ -28,6 +28,25 @@ class TendikController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nip' => 'required|unique:tendik',
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'tugas_kota' => 'required',
+            'tugas_sekolah' => 'required',
+            'tugas_mengajar' => 'required',
+            'pangkat_id' => 'required',
+            'pendidikan_strata_id' => 'required:numeric',
+            'pendidikan_linear' => 'required',
+            'pendidikan_jurusan' => 'required',
+            'lahir_tempat' => 'required',
+            'lahir_tanggal' => 'required',
+            'jabatan_id' => 'required',
+            'jenis_guru_id' => 'required',
+        ]);
+        $request['masa_tahun'] = 0;
+        $request['masa_bulan'] = 0;
+        $request['jabatan_tanggal'] = '0000-01-31';
         Tendik::create($request->all());
         return redirect()->route('tendik.index');
     }
@@ -49,6 +68,25 @@ class TendikController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nip' => 'required|unique:tendik',
+            'nama' => 'required',
+            'jenis_kelamin' => 'required',
+            'tugas_kota' => 'required',
+            'tugas_sekolah' => 'required',
+            'tugas_mengajar' => 'required',
+            'pangkat_id' => 'required',
+            'pendidikan_strata_id' => 'required:numeric',
+            'pendidikan_linear' => 'required',
+            'pendidikan_jurusan' => 'required',
+            'lahir_tempat' => 'required',
+            'lahir_tanggal' => 'required',
+            'jabatan_id' => 'required',
+            'jenis_guru_id' => 'required',
+        ]);
+        $request['masa_tahun'] = 0;
+        $request['masa_bulan'] = 0;
+        $request['jabatan_tanggal'] = '0000-01-31';
         $tendik = Tendik::findOrFail($id);
         $tendik->update($request->all());
         return redirect()->route('tendik.index');
