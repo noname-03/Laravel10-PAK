@@ -4,7 +4,7 @@
     <div class="logo-box">
         <!-- Brand Logo Light -->
         <a href="{{route('home')}}" class="logo-light">
-            <img src="{{ asset('/') }}assets/images/HIJAU-SILAPAK1.png" alt="PAK" width="100">
+            <img src="{{ asset('/') }}assets/images/logo-Silapak.png" alt="PAK" width="100">
             {{-- <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm"> --}}
             {{-- <h2>PAK</h2> --}}
         </a>
@@ -12,7 +12,7 @@
         <!-- Brand Logo Dark -->
         <a href="{{route('home')}}" class="logo-dark">
             {{-- <h2 class="logo-sm" style="color: #0088D5">PAK</h2> --}}
-            <img src="{{ asset('/') }}assets/images/HIJAU-SILAPAK1.png" alt="PAK" width="100" class="logo-xl">
+            <img src="{{ asset('/') }}assets/images/logo-Silapak.png" alt="PAK" width="100" class="logo-xl">
             {{-- <img src="{{ asset('/') }}assets/images/logo-sm.png" alt="small logo" class="logo-sm"> --}}
         </a>
     </div>

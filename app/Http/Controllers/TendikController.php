@@ -69,7 +69,7 @@ class TendikController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nip' => 'required|unique:tendik',
+            'nip' => 'required',
             'nama' => 'required',
             'jenis_kelamin' => 'required',
             'tugas_kota' => 'required',
