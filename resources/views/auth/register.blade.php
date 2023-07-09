@@ -122,7 +122,7 @@
                                 </div>
 
                                 <div class="text-center d-grid">
-                                    <button class="btn btn-success" type="submit"> Sign Up </button>
+                                    <button class="btn btn-primary" type="submit"> Sign Up </button>
                                 </div>
 
                             </form>
