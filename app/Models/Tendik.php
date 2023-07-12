@@ -4,6 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\jenisGuru;
+use App\Models\Jabatan;
+use App\Models\Pangkat;
+use App\Models\PendidikanStrata;
+use App\Models\User;
 
 class Tendik extends Model
 {
