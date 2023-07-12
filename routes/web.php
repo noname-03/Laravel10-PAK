@@ -32,6 +32,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pak/create', [Pakcontroller::class, 'create'])->name('pak.create');
     Route::get('/pak/{id}/show', [Pakcontroller::class, 'show'])->name('pak.show');
     Route::get('/pak/edit/{id}/biodata', [Pakcontroller::class, 'biodataEdit'])->name('pak.biodata.edit');
+    Route::get('/pak/edit/{id}/biodata/verification', [Pakcontroller::class, 'verification'])->name('pak.varification.edit');
+    Route::put('/pak/edit/{id}/biodata/verification/update', [Pakcontroller::class, 'verificationUpdate'])->name('pak.varification.update');
     Route::put('/pak/update/{id}/biodata', [Pakcontroller::class, 'biodataUpdate'])->name('pak.biodata.update');
     Route::delete('/pak/{id}/destroy', [Pakcontroller::class, 'destroy'])->name('pak.destroy');
     Route::get('/pak/create/biodata', [Pakcontroller::class, 'biodata'])->name('pak.biodata');

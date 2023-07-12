@@ -488,4 +488,23 @@ class PakController extends Controller
         });
         return view('pages.pak.show', compact('dataPak', 'unsur'));
     }
+
+    public function verification($id)
+    {
+        $pak = Pak::findOrFail($id);
+        return view('pages.pak.verification', compact('pak'));
+    }
+
+    public function verificationUpdate(Request $request, $id)
+    {
+
+        $pak = Pak::findOrFail($id);
+        $by_user_id = Auth::user()->id;
+        $pak->update([
+            'status' => $request->status,
+            'note' => $request->note,
+            'by_user_id' => $by_user_id,
+        ]);
+        return redirect()->route('pak.index');
+    }
 }

@@ -76,22 +76,24 @@
                                 <th style="width: 2%">No</th>
                                 <th style="width: 10%">Tanggal Pengajuan</th>
                                 <th style="width: 3%">Priode</th>
-                                <th style="width: 20%">Pangkat/Golongan/Jabatan</th>
-                                <th style="width: 10%">Status</th>
-                                <th style="width: 10%">Satuan Pendidikan</th>
                                 <th style="width: 3%">Nama</th>
+                                <th style="width: 20%">Pangkat/Golongan</th>
+                                <th style="width: 10%">Satuan Pendidikan</th>
+                                <th style="width: 10%">Status</th>
                                 <th style="width: 42%">Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             @foreach ($dataPak as $item) <tr>
-                                <td style="text-align: center">{{$loop->iteration}}</td>
-                                <td style="text-align: center">{{$item->created_at}}</td>
-                                <td style="text-align: center">{{$item->pak_priode}}</td>
-                                <td style="text-align: center">
-                                    {{$item->user->tendik->pangkat->title}} / {{ $item->user->tendik->jabatan->title}}
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->created_at}}</td>
+                                <td>{{$item->pak_priode}}</td>
+                                <td>{{$item->user->tendik->nama}}</td>
+                                <td>
+                                    {{$item->user->tendik->pangkat->title}}
                                 </td>
+                                <td>{{$item->tugas_sekolah}}</td>
                                 <td>
                                     @if ($item->status === 'sukses')
                                     <button class="btn btn-sm btn-outline-blue"><i class="fe-check"></i> SUKSES</button>
@@ -106,8 +108,6 @@
                                         GAGAL</button>
                                     @endif
                                 </td>
-                                <td>{{$item->tugas_sekolah}}</td>
-                                <td style="text-align: center">{{$item->user->tendik->nama}}</td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="{{ asset('storage/file/'.$item->dok_pak_terakhir) }}"
@@ -131,6 +131,10 @@
                                     <form action="{{ route('pak.destroy', $item->id) }}" method="POST">
                                         @method('DELETE') @csrf
                                         <div class="btn-group" role="group" aria-label="Basic example">
+                                            <a href="{{ route('pak.varification.edit', $item->id) }}"
+                                                class="btn btn-sm btn-outline-primary">
+                                                Verifikasi
+                                            </a>
                                             <a href="{{ route('pak.show', $item->id) }}"
                                                 class="btn btn-sm btn-outline-info">
                                                 <i class="fe-eye"></i>
@@ -180,6 +184,10 @@
                                     @role('penilai')
                                     <br>
                                     <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a href="{{ route('pak.varification.edit', $item->id) }}"
+                                            class="btn btn-sm btn-outline-primary">
+                                            Verifikasi
+                                        </a>
                                         <a href="{{ route('pak.show', $item->id) }}"
                                             class="btn btn-sm btn-outline-info">
                                             <i class="fe-eye"></i>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pak;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Tendik;
 
 class HomeController extends Controller
 {

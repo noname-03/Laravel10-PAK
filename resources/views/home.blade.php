@@ -179,22 +179,50 @@ Home
                     <div id="cardCollpase4" class="collapse show">
                         <div class="table-responsive pt-3">
                             <table class="table table-centered table-nowrap table-borderless mb-0">
+                                @role(['admin', 'penilai'])
                                 <thead class="table-light">
                                     <tr>
+                                        <th style="width: 20%">NIP</th>
+                                        <th style="width: 20%">Nama</th>
                                         <th style="width: 20%">Penilai</th>
                                         <th style="width: 10%">Status</th>
-                                        <th style="width: 70%">Note</th>
+                                        <th style="width: 40%">Note</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $item)
                                     <tr>
+                                        <td>{{$item->user->nip }}</td>
+                                        <td>{{$item->user->name }}</td>
                                         <td>{{$item->by_user_id != null ? $item->byUser->name : 'belum dinilai' }}</td>
                                         <td>{{$item->status }}</td>
                                         <td>{{$item->note }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>
+                                @endrole
+                                @role('user')
+                                <thead class="table-light">
+                                    <tr>
+                                        <th style="width: 20%">Tanggal Pengajuan</th>
+                                        <th style="width: 20%">Priode</th>
+                                        <th style="width: 20%">Penilai</th>
+                                        <th style="width: 10%">Status</th>
+                                        <th style="width: 40%">Note</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($data as $item)
+                                    <tr>
+                                        <td>{{$item->created_at }}</td>
+                                        <td>{{$item->pak_priode }}</td>
+                                        <td>{{$item->by_user_id != null ? $item->byUser->name : 'belum dinilai' }}</td>
+                                        <td>{{$item->status }}</td>
+                                        <td>{{$item->note }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                @endrole
                             </table>
                         </div> <!-- .table-responsive -->
                     </div> <!-- end collapse-->

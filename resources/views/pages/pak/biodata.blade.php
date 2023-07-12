@@ -34,7 +34,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title">Formulir Biodata</h4>
+                    <h4 class="header-title">FORMULIR BIODATA</h4>
                     <form action="{{route('pak.biodata.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">

@@ -34,8 +34,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title">Formulir
+                    <h4 class="header-title">FORMULIR
                         {{$dataSekarang['title']}}</h4>
+
+                    @role(['admin', 'user'])
                     <form action="{{route('pak.unsur.store', [$pak['id'], $dataSekarang['id']])}}" method="post"
                         enctype="multipart/form-data">
                         @csrf
@@ -108,7 +110,7 @@
                             </div>
                         </div>
                     </form>
-
+                    @endrole
                     <div class="table-responsive">
                         <table class="table ">
                             <thead>
