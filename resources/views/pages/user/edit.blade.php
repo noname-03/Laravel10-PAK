@@ -39,6 +39,18 @@
                         @csrf @method('put')
                         <div class="row">
                             <div class="col-md-6 mb-3">
+                                <label for="nip" class="form-label">NIP</label>
+                                <input type="number" id="nip" name="nip"
+                                    class="form-control @error('nip') is-invalid @enderror" placeholder="Masukan NIP"
+                                    value="{{$user->nip}}">
+                                @error('nip')
+                                <div class="invalid-feedback">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                            </div> <!-- end col -->
+
+                            <div class="col-md-6 mb-3">
                                 <label for="name" class="form-label">Nama</label>
                                 <input type="text" id="name" name="name"
                                     class="form-control @error('name') is-invalid @enderror" placeholder="Masukan Nama"

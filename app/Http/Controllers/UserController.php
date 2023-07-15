@@ -30,6 +30,7 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         // validation
         $this->validate($request, [
             'name' => 'required|min:3|max:50',
