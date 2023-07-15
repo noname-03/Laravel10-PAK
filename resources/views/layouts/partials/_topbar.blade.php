@@ -46,6 +46,14 @@
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
+
+                    @role('user')
+                    <!-- item-->
+                    <a href="{{route('profile')}}" class="dropdown-item notify-item">
+                        <i class="fe-user"></i>
+                        <span>Profile</span>
+                    </a>
+                    @endrole
                     <!-- item-->
                     {{-- <div class="dropdown-header noti-title">
                         <h6 class="text-overflow m-0">Welcome !</h6>

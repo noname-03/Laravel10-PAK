@@ -28,6 +28,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('tendik', TendikController::class)->middleware('role:admin');
     Route::resource('user', UserController::class)->middleware('role:admin');
 
+    Route::get('profile', [UserController::class, 'profile'])->name('profile');
+    Route::put('profile/{id}', [UserController::class, 'profileUpdate'])->name('profile.update');
+
     Route::get('/pak', [Pakcontroller::class, 'index'])->name('pak.index');
     Route::get('/pak/create', [Pakcontroller::class, 'create'])->name('pak.create');
     Route::get('/pak/{id}/show', [Pakcontroller::class, 'show'])->name('pak.show');
